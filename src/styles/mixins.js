@@ -4,9 +4,9 @@
 export const mixins = {
 
     colors:{        
-        background:"gray",
-        primary: "black",
-        secondary: "#F8F8FF",
+        background:"#E5E5E5",
+        primary: "red",
+        secondary: "#F8F8FF",       
         green: "green",
         yellow: "yellow",
         red: "red"

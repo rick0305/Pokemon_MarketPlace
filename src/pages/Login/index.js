@@ -1,4 +1,4 @@
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, ButtonGroup } from 'react-bootstrap';
 import React from 'react';
 import Container from '../../components/Container';
 import {useFormik} from 'formik';
@@ -17,7 +17,7 @@ function Login() {
   })
   return (
 
-   <Container title="Login" size="sm">
+   <Container title="Pokéfeira" size="sm">     
      <Form  onSubmit={formik.handleSubmit}>
        <Form.Group className="mb-5">
        <Form.Label>Login</Form.Label>
@@ -27,8 +27,7 @@ function Login() {
         placeholder="Digite seu email"
       ></Form.Control>
       </Form.Group>
-     </Form>  
-     <br></br>   
+     </Form>         
      <Form>
      <Form.Group className="mb-5">
        <Form.Label>Senha</Form.Label>
@@ -36,18 +35,16 @@ function Login() {
         id="password"
         name="password"
         type="password"
-        placeholder="Digite sua Senha"
-      ></Form.Control>     
-        <Button variant="primary" type="submit">Entrar</Button>
-        <Button variant="primary" type="submit">Cadastrar-se</Button>
-      </Form.Group>
-      
+        placeholder="Digite sua Senha"       
+      ></Form.Control>           
+      </Form.Group>           
+      </Form>      
       <Form>
-        <Form.Group>
-    
-        </Form.Group>
+        <ButtonGroup className="d-grid gap-2"> 
+        <Button variant="danger">Login</Button>               
+        <Button variant="danger">Cadastrar-se</Button>
+        </ButtonGroup>
       </Form>
-     </Form>
    </Container>
 
   );
