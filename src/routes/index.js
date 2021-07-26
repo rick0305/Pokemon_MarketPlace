@@ -9,18 +9,19 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 import NotFound from '../pages/NotFound';
 import { Styled } from './styles';
 import NavBar from '../components/NavBar';
+import { useAuth } from '../hooks/context/AuthProvider';
 // import { Container } from './styles';
 
 function Routes() {
+  const {auth} = useAuth()
   return (
     <Styled.AppLayout>
-      <NavBar></NavBar>
+      <Styled.Logo imgUrl={process.env.PUBLIC_URL + '../assets.back.jpg'} ></Styled.Logo>
+      {auth && <NavBar></NavBar>}
       <Styled.PageLayout>
       <Switch>
       <Route path="/" exact component={Login}></Route>
-
-      <Route path="/home" component={Home} ></Route>
-
+      {auth && <Route path="/home" component={Home} />}
       {/* Aqui eu especifico para minha aplicação que qualquer parâmetro 
           passado diferente especificados acima vá para pagina notfound e exibe uma
           mensagem de pagina não encontrada*/}          

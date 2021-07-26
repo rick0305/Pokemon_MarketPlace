@@ -2,7 +2,7 @@ import React from 'react';
 import { Styled } from './styles';
 //import { Container } from './styles';
 
-function Container({children, title, size}) {
+function Container({children, title, size,}) {
     switch (size) {
       case "lg":
           return (

@@ -12,5 +12,10 @@ export const Styled = {
     height: 100%;
     display: flex;
     flex-direction: column;
-  `,
+  `,  
+      Logo:styled.img`
+      
+  `
+   
+    
 }
