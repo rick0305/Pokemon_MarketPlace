@@ -12,60 +12,65 @@ const AuthContext = createContext({});
 const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState(() => {
     const token = sessionStorage.getItem('@Academia_login');
-
-    if (token) {
+    if(token) {
       return token;
     }
-
     return "";
   });
 
   const [error, setError] = useState("");
 
-  const signOut = useCallback(() => {
+  const SignOut = useCallback(() => {
     sessionStorage.removeItem('@Academia_login')
     setAuth("");
   }, []);
 
-  const signIn = useCallback(async ({login, password}) => {
-    setError("")
-    try {
-      if(!login || !password) setError('Login ou senha inválidos')
-      
-      const { data } = await api.get(`/users?login=${login}`)
+  const SignIn = useCallback(
+    async ({login, password}) => {
+      setError("");
+      try {
+        if(!login || !password) {
+          setError("Login e senha inválidos");
+          return
+        }
 
-      if(data.length === 0) {
-          return setError('Login ou senha inválidos')
-      }
-      if(password !== data[0].password) {
-          return setError('Login ou senha inválidos')
-      }
+        const { data } = await api.get(`/users?login=${login}`);
 
-      setAuth(data[0].access_token);
-      sessionStorage.setItem('@Academia_login', data[0].access_token)
-      api.defaults.headers.Authorization = `Bearer ${data[0].access_token}`; 
-    } catch (error) {
-        setError('Login ou senha inválidos')
-    }
-  }, []);  
+        if(data.length === 0) {
+          setError("Login e senha inválidos");
+          return
+        }
+
+        if(data[0].password !== password) {
+          setError("Login e senha inválidos");
+          return
+        }
+
+        sessionStorage.setItem('@Academia_login', data[0].access_token);
+        setAuth(data[0].access_token);
+        api.defaults.headers.Authorization = `Bearer ${data[0].access_token}`
+
+      } catch (error) {
+        setError("Login e senha inválidos");
+      }
+  }, []); 
   
   return (
     <AuthContext.Provider 
       value={{ 
         auth, 
-        signIn, 
-        signOut, 
+        SignIn, 
+        SignOut, 
         error 
       }}
     >
-          {children}
+      {children}
     </AuthContext.Provider>
   );
 };
 
 function useAuth() {
   const context = useContext(AuthContext);
-
   return context;
 }
 

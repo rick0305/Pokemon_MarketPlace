@@ -5,12 +5,9 @@ import Routes from './routes';
 function App() {
   return (
    <BrowserRouter>
-   <Routes></Routes>
-   <GlobalStyle></GlobalStyle>
+    <Routes></Routes>
+    <GlobalStyle></GlobalStyle>
    </BrowserRouter>
-    
-    
-    
     
   );
 }

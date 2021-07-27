@@ -7,7 +7,7 @@ import { AuthProvider } from './hooks/context/AuthProvider';
 ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
-    <App />
+      <App />
     </AuthProvider>
   </React.StrictMode>,
   document.getElementById('root')

@@ -17,18 +17,17 @@ function Routes() {
   return (
     <Styled.AppLayout>
       <Styled.Logo imgUrl={process.env.PUBLIC_URL + '../assets.back.jpg'} ></Styled.Logo>
-      {auth && <NavBar></NavBar>}
+      {auth && <NavBar />}
       <Styled.PageLayout>
-      <Switch>
-      <Route path="/" exact component={Login}></Route>
-      {auth && <Route path="/home" component={Home} />}
-      {/* Aqui eu especifico para minha aplicação que qualquer parâmetro 
-          passado diferente especificados acima vá para pagina notfound e exibe uma
-          mensagem de pagina não encontrada*/}          
-      <Redirect from="*" to={NotFound}></Redirect>
-    </Switch>
+        <Switch>
+          <Route path="/" exact component={Login}></Route>
+          {auth && <Route path="/home" component={Home} />}
+          {/* Aqui eu especifico para minha aplicação que qualquer parâmetro 
+              passado diferente especificados acima vá para pagina notfound e exibe uma
+              mensagem de pagina não encontrada*/}          
+          <Redirect from="*" to={NotFound}></Redirect>
+        </Switch>
       </Styled.PageLayout>
-
     </Styled.AppLayout>
 
   );
