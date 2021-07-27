@@ -30,7 +30,7 @@ export const Styled = {
 		display: flex;        
 		margin-left:130px;
 		flex-direction: row;
-		color: ${mixins.colors.primary};
+		color: ${mixins.colors.third};
 		font-family: ${mixins.fonts.bold};
 		font-size: ${mixins.typograph.title};
 	`,  
