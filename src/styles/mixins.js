@@ -4,18 +4,21 @@
 export const mixins = {
 
     colors:{             
-        background:"#FFA500",
-        primary: "red",
-        secondary:"#F0242D",
-        third:"#FFFFFF",    
-        fifth:"#731F17",
-        sixth:"#F6BD20",      
+        background_login:"#FFA500",
+        background:"#E5E5E5",
+        primary: "#F0242D",
+        secondary: "#F6BD20",
+        foreground: "#FFF",
+        dark: "#292929",
+        darkred: "#731F17",
+        green: "green",
+        yellow: "yellow",
+        red: "red"
     },
     fonts:{
         bold: "Montserrat-Bold",
         semi_bold: "Montserrat-SemiBold",
-        normal: "Montserrat-Normal",
-        
+        normal: "Montserrat-Normal",       
     },
     typograph:{
         titleLogin: "33px",
@@ -30,5 +33,5 @@ export const mixins = {
               
     },
     
-
 }
+

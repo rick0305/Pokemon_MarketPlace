@@ -5,7 +5,7 @@ export const Styled = {
     Error: styled.p`
         align-self: center;
         justify-self: center;
-        color: ${mixins.colors.third};
+        color: ${mixins.colors.foreground};
         font-family: ${mixins.fonts.semi_bold};
         font-size: ${mixins.typograph.campoObrigatorio};
     `,
