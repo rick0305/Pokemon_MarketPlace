@@ -35,44 +35,44 @@ function Login() {
   );
 
   return (
-    <Container
-      title="Login"
-      size="sm"
-    >
-      <Form onSubmit={formik.handleSubmit}>
-        <Form.Group className="mb-5">
-          <Form.Label></Form.Label>
-          <Form.Control
-            id="login"
-            name="login"
-            placeholder="Digite seu e-mail"
-            onChange={formik.handleChange}
-            isValid={formik.touched.login && !formik.errors.login}
-            isInvalid={formik.errors.login}
-          />
-          {ValidationLoginError}
-        </Form.Group>
-        <Form.Group className="mb-5">
-          <Form.Label></Form.Label>
-          <Form.Control
-            id="password"
-            name="password"
-            type="password"
-            placeholder="Digite sua Senha"
-            onChange={formik.handleChange}
-            isValid={formik.touched.password && !formik.errors.password}
-            isInvalid={formik.errors.password}
-          />
-          {ValidationPasswordError}
-        </Form.Group>
-        {AppError}            
-         <ButtonGroup>
-           <Button variant="dark"  type="submit">Go!</Button>                                                            
-        </ButtonGroup>
-      
-        <Button variant="link">Quero ser um mestre pokémon</Button>
-      </Form> 
-    </Container>
+      <Container
+        title="Login"
+        size="sm"
+      >
+        <Form onSubmit={formik.handleSubmit}>
+          <Form.Group className="mb-5">
+            <Form.Label></Form.Label>
+            <Form.Control
+              id="login"
+              name="login"
+              placeholder="Digite seu e-mail"
+              onChange={formik.handleChange}
+              isValid={formik.touched.login && !formik.errors.login}
+              isInvalid={formik.errors.login}
+            />
+            {ValidationLoginError}
+          </Form.Group>
+          <Form.Group className="mb-5">
+            <Form.Label></Form.Label>
+            <Form.Control
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Digite sua Senha"
+              onChange={formik.handleChange}
+              isValid={formik.touched.password && !formik.errors.password}
+              isInvalid={formik.errors.password}
+            />
+            {ValidationPasswordError}
+          </Form.Group>
+          {AppError}            
+          <ButtonGroup>
+            <Button variant="dark"  type="submit">Go!</Button>                                                            
+          </ButtonGroup>
+        
+          <Button variant="link">Quero ser um mestre pokémon</Button>
+        </Form> 
+      </Container>
   );
 }
 

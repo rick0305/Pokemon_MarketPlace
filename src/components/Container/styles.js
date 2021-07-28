@@ -3,7 +3,7 @@ import { mixins } from "../../styles/mixins";
 
 const ContainerSM = styled.div`
 	margin:180px 0;
-	width:355px;
+	width:3 55px;
 	height: 479;
 	background-color: ${mixins.colors.primary};
 	align-self: flex-end;
