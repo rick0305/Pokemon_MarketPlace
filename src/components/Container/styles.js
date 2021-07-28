@@ -2,21 +2,19 @@ import styled from "styled-components";
 import { mixins } from "../../styles/mixins";
 
 const ContainerSM = styled.div`
-	margin:150px 0;
-	width:450px;
-	height: 100%;
+	margin:180px 0;
+    width:355px;
+    height: 479;
 	background-color: ${mixins.colors.secondary};
-	display: flex;
-	flex-direction: column;
-	align-self: center;
-	border-radius:25px;
-	align-items: top;
-	justify-content: center;
+    align-self: flex-end;
+    margin-right: 200px;
+    padding: 50px;
+	//border-radius:25px;
 	padding: 50px;   
 `
 export const Styled = {
-	ContainerSM,
-	ContainerLG: styled(ContainerSM)`       
+    ContainerSM,
+    ContainerLG: styled(ContainerSM)`       
 		margin: 5% 0;
 		width: 90%;       
 		align-items: center;
@@ -33,12 +31,6 @@ export const Styled = {
 		justify-content: center;
 		color: ${mixins.colors.third};
 		font-family: ${mixins.fonts.bold};
-		font-size: ${mixins.typograph.title};
-	`,  
-	Logo:styled.img`
-		height: 180px;
-		width: 171px;
-		padding:0px;           
-		margin-top: 0%;
-	`      
+		font-size: ${mixins.typograph.titleLogin};
+	`,
 };

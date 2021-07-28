@@ -41,11 +41,11 @@ function Login() {
     >
       <Form onSubmit={formik.handleSubmit}>
         <Form.Group className="mb-5">
-          <Form.Label>Login</Form.Label>
+          <Form.Label></Form.Label>
           <Form.Control
             id="login"
             name="login"
-            placeholder="Coloque o seu login"
+            placeholder="Digite seu e-mail"
             onChange={formik.handleChange}
             isValid={formik.touched.login && !formik.errors.login}
             isInvalid={formik.errors.login}
@@ -53,23 +53,24 @@ function Login() {
           {ValidationLoginError}
         </Form.Group>
         <Form.Group className="mb-5">
-          <Form.Label>Senha</Form.Label>
+          <Form.Label></Form.Label>
           <Form.Control
             id="password"
             name="password"
             type="password"
-            placeholder="Coloque a sua senha"
+            placeholder="Digite sua Senha"
             onChange={formik.handleChange}
             isValid={formik.touched.password && !formik.errors.password}
             isInvalid={formik.errors.password}
           />
           {ValidationPasswordError}
         </Form.Group>
-        {AppError}    
-        <ButtonGroup className="d-grid gap-2"> 
-          <Button variant="danger" type="submit">Login</Button>               
-          <Button variant="link">Cadastrar-se</Button>
-        </ButtonGroup> 
+        {AppError}            
+         <ButtonGroup>
+           <Button variant="dark"  type="submit">Go!</Button>                                                            
+        </ButtonGroup>
+      
+        <Button variant="link">Quero ser um mestre pokémon</Button>
       </Form> 
     </Container>
   );
