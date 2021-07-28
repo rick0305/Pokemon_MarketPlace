@@ -28,8 +28,9 @@ export const Styled = {
 	Title: styled.h1`
 		height: 100px;
 		display: flex;        
-		margin-left:130px;
 		flex-direction: row;
+		align-items: center;
+		justify-content: center;
 		color: ${mixins.colors.third};
 		font-family: ${mixins.fonts.bold};
 		font-size: ${mixins.typograph.title};

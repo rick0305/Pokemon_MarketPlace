@@ -1,6 +1,7 @@
 import React from 'react';
 import Home from '../pages/Home'
 import Login from '../pages/Login'
+import Register from '../pages/Register'
 /*switch = Troca o componente que vai ser renderizado
  router = Define a rota e o componente que vai ser renderizado 
  Redirecet =  Redireciona para um determinado componente
@@ -21,6 +22,7 @@ function Routes() {
       <Styled.PageLayout>
         <Switch>
           <Route path="/" exact component={Login}></Route>
+          <Route path="/register" component={Register}></Route>
           {auth && <Route path="/home" component={Home} />}
           {/* Aqui eu especifico para minha aplicação que qualquer parâmetro 
               passado diferente especificados acima vá para pagina notfound e exibe uma
