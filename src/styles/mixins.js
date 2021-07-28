@@ -1,23 +1,24 @@
 //padroes de cores, tamanhos, fontes, tamanho de fontes
 //Aqui é onde eu exporto um objeto
-import img from '../assets/login-page.png';
 
 export const mixins = {
 
     colors:{             
-       background:"#FFA500",
-        primary: "red",
-        secondary: "#F0242D",
-        third:"#FFFFFF",
+        background:"#e5e5e5",
+        primary: "#f0242d",
+        secondary: "#f6bd20",
+        foreground: "#fff",
+        dark: "#292929",
+        darkred: "#731f17",
         green: "green",
         yellow: "yellow",
         red: "red"
     },
     fonts:{
-        bold: "Montserrat-Bold",
-        semi_bold: "Montserrat-SemiBold",
-        normal: "Montserrat-Normal",
-        
+        bold: "Lato-Black",
+        semi_bold: "Lato-Bold",
+        normal: "Lato-Regular",
+        thin: "Lato-Light",        
     },
     typograph:{
         title: "96px 33px",
@@ -30,6 +31,5 @@ export const mixins = {
         sm:"120px",  //tamanho pequeno
               
     },
-
-
 }
+

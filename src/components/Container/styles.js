@@ -5,7 +5,7 @@ const ContainerSM = styled.div`
 	margin:150px 0;
 	width:450px;
 	height: 100%;
-	background-color: ${mixins.colors.secondary};
+	background-color: ${mixins.colors.primary};
 	display: flex;
 	flex-direction: column;
 	align-self: center;
@@ -28,7 +28,6 @@ export const Styled = {
 	Title: styled.h1`
 		height: 100px;
 		display: flex;        
-		margin-left:130px;
 		flex-direction: row;
 		color: ${mixins.colors.third};
 		font-family: ${mixins.fonts.bold};
