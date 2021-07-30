@@ -35,7 +35,7 @@ function Routes() {
           <Redirect from="*" to={NotFound}></Redirect>
         </Switch>
       </Styled.PageLayout>
-      {auth && <Footer />}
+      {/* {auth && <Footer />} */}
     </Styled.AppLayout>
 
   );

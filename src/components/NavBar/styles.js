@@ -65,11 +65,24 @@ export const Styled = {
         height: 35px;
         display: flex;
         align-self: center;
-        color: #fff;
+        color: black;
         text-align:center;
         border: none;
         border-radius: 10px;
-        background-color: rgb(210, 36, 45);   
+        background-color: white;   
+    `,
+
+    Text: styled.p`
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: ${mixins.fonts.bold};
+        font-weight: 700;
+        color: red;
+        background-color: ${mixins.colors.yellow};
+        height: 23px;
+        width: 23px;
+        border-radius: 50%;
     `,
 }
     

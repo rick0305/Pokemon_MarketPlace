@@ -1,0 +1,53 @@
+p {
+    margin: 0;
+    font-size: 16px;
+}
+
+img {
+    height: 120px;
+    width: 120px;
+}
+
+.paragraph {
+    font-size: 24px;
+}
+
+.Card {
+    background: rgb(212, 209, 209);
+    border-radius: 10px;
+}
+
+.Card__img {
+    text-align: center;
+}
+
+.Card__types {
+    display: flex;
+    justify-content: center;    
+}
+
+.Card__type {
+    padding: 5px 10px;
+    margin: 10px 10px 10px 0;
+    border-radius: 5px;
+    background: cyan;
+    color: #fff;
+}
+
+.Card__name {
+    text-align: center;
+    text-transform: capitalize;
+    font-weight: 800;
+}
+
+.Card__info {
+    margin-left: 10px;
+}
+
+.Card__data {
+    padding-bottom: 10px;
+}
+
+.Card__data .title {
+    font-weight: 700;
+}
