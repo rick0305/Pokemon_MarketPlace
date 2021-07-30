@@ -4,12 +4,13 @@
 export const mixins = {
 
     colors:{             
-        background:"#FFA500",
-        primary: "red",
+        background:"#E5E5E5",        
         secondary:"#F0242D",
         third:"#FFFFFF",    
         fifth:"#731F17",
-        sixth:"#F6BD20",      
+        sixth:"#F6BD20",
+            
+              
     },
     fonts:{
         bold: "Montserrat-Bold",
@@ -22,6 +23,7 @@ export const mixins = {
         subTitle: "16px",
         paragraph:"12px",
         campoObrigatorio:"14px",
+        EsqueceuSenha:"10px",
     },
     size:{
         lg:"240px",  //tamanho grande

@@ -1,16 +1,17 @@
 import styled from "styled-components";
 import { mixins } from "../../styles/mixins";
 
+
 const ContainerSM = styled.div`
-	margin:180px 0;
+	
     width:355px;
-    height: 479;
+    height: 479px;
+	position: absolute;
 	background-color: ${mixins.colors.secondary};
-    align-self: flex-end;
+    align-self: flex-end;	
     margin-right: 200px;
     padding: 50px;
-	//border-radius:25px;
-	padding: 50px;   
+	 	  
 `
 export const Styled = {
     ContainerSM,
@@ -29,6 +30,6 @@ export const Styled = {
 		flex-direction: row;
 		color: ${mixins.colors.third};
 		font-family: ${mixins.fonts.bold};
-		font-size: ${mixins.typograph.titleLogin};
-	`,
+		font-size: ${mixins.typograph.titleLogin};		
+	`
 };

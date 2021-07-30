@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-
 export const Styled = {
   AppLayout: styled.div`
     display: flex;
@@ -12,10 +11,6 @@ export const Styled = {
     height: 100%;
     display: flex;
     flex-direction: column;
-  `,  
-      Logo:styled.img`
-      
-  `
-   
+  `,    
     
 }

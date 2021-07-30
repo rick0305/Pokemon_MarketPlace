@@ -15,8 +15,7 @@ import { useAuth } from '../hooks/context/AuthProvider';
 function Routes() {
   const {auth} = useAuth()
   return (
-    <Styled.AppLayout>
-      <Styled.Logo imgUrl={process.env.PUBLIC_URL + '../assets.back.jpg'} ></Styled.Logo>
+    <Styled.AppLayout>      
       {auth && <NavBar />}
       <Styled.PageLayout>
         <Switch>
