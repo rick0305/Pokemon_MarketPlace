@@ -25,9 +25,8 @@ export const Styled = {
 };
 export const LoginButton = styled.button`
   
-          background-color:${mixins.colors.sixth};
-          text-align: center;
-          text-decoration:${mixins.colors.third};
+          background-color:${mixins.colors.secondary};
+          text-align: center;          
           font-size:18px;                    
           width: 100%;
           height: 35px;
