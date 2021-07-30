@@ -14,8 +14,8 @@ const ContainerSM = styled.div`
 	 	  
 `
 export const Styled = {
-    ContainerSM,
-    ContainerLG: styled(ContainerSM)`       
+	ContainerSM,
+	ContainerLG: styled(ContainerSM)`       
 		margin: 5% 0;
 		width: 90%;       
 		align-items: center;
@@ -24,11 +24,13 @@ export const Styled = {
 		justify-content: center;
 		padding: none;
 	`,
-    Title: styled.h1`		
-		display: flex;
-        margin-left:80px;        		
+	Title: styled.h1`
+		height: 100px;
+		display: flex;        
 		flex-direction: row;
-		color: ${mixins.colors.third};
+		align-items: center;
+		justify-content: center;
+		color: ${mixins.colors.foreground};
 		font-family: ${mixins.fonts.bold};
 		font-size: ${mixins.typograph.titleLogin};		
 	`
