@@ -22,9 +22,22 @@ export const Styled = {
 		justify-content: center;
 		padding: none;
 	`,
-    Title: styled.h1`		
+	ContainerMD: styled.div`
+		margin: 5% 0;
+		width: 90%;
+		height: 100%;
+		background-color: ${mixins.colors.primary};
 		display: flex;
-        margin-left:80px;        		
+		flex-direction: column;
+		align-self: center;
+		border-radius: 25px;
+		align-items: top;
+		justify-content: center;
+		padding: none;
+	`,
+	Title: styled.h1`
+		height: 100px;
+		display: flex;        
 		flex-direction: row;
 		color: ${mixins.colors.foreground};
 		font-family: ${mixins.fonts.bold};
