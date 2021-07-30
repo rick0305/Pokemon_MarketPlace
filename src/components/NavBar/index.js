@@ -23,7 +23,7 @@ function NavBar() {
         <Styled.NavSearch type="search" placeholder="Search" aria-label="Search"></Styled.NavSearch>
         <Styled.NavItems>
             <Styled.NavItem to="/cart"><FiShoppingCart/></Styled.NavItem>
-            <Styled.NavItem to="/profile"><FiUser /></Styled.NavItem>
+            <Styled.NavItem to="/prod"><FiUser /></Styled.NavItem>
             <Styled.NavItem onClick={handleClick}><FiLogOut/></Styled.NavItem>
         </Styled.NavItems>
     </Styled.Nav>        

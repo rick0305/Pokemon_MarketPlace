@@ -3,8 +3,9 @@ import { Form, Button, ButtonGroup } from 'react-bootstrap';
 import Container from '../../components/Container';
 import { useFormik } from 'formik';
 import { useAuth } from '../../hooks/context/AuthProvider';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { Styled } from './styles';
+import { mixins } from "../../styles/mixins";
 import { validationSchema } from './validation';
 
 function Login() {
@@ -69,8 +70,10 @@ function Login() {
           <ButtonGroup>
             <Button variant="dark"  type="submit">Go!</Button>                                                            
           </ButtonGroup>
-        
-          <Button variant="link">Quero ser um mestre pokémon</Button>
+          <br />
+          <Link to="/register">
+            <Button variant="link" style={{font: `${mixins.fonts.bold}`, color: `${mixins.colors.secondary}`}} >Quero ser um mestre pokémon</Button>
+          </Link> 
         </Form> 
       </Container>
   );

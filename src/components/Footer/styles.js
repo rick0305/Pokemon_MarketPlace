@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { mixins } from "../../styles/mixins";
 
 export const Box = styled.div`
-	padding: 40px 0;
+	padding: 10px 0;
 	background-color: ${mixins.colors.foreground};
 	position: absolute;
 	bottom: 0;

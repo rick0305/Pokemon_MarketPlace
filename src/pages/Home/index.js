@@ -1,13 +1,12 @@
 import React from 'react';
-import Container from '../../components/Container';
-
-// import { Container } from './styles';
+/* import Container from '../../components/Container'; */
+import Footer from '../../components/Footer';
 
 function Home() {
-  return <Container title="Home" size="lg">
-
-
-  </Container>
+  return <div>
+    <p>teste</p>
+    <Footer />
+  </div>
    
 }
 
