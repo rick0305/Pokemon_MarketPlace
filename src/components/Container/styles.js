@@ -9,7 +9,6 @@ const ContainerSM = styled.div`
 	align-self: flex-end;
 	margin-right: 200px;
 	padding: 50px;
-//border-radius:25px;
 	padding: 50px;   
 `
 export const Styled = {

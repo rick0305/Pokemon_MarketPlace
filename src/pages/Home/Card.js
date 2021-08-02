@@ -1,20 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import "./style.css";
 import typeColors from "./typeColors";
 import { Button, Modal, ModalBody, Toast } from "react-bootstrap";
-import {connect} from "react-redux"
-import { CartContext, useCart } from "../../hooks/context/CartProvider";
+import { useCart } from "../../hooks/context/CartProvider";
 
-// redux
-// function toggleProduct(pokemon) {
-//   return {
-//       type: "TOGGLE_PRODUCT",
-//       pokemon
-//   }
-// }
-
-
-function Card({ pokemon, toggleProduct }) {
+function Card({ pokemon, toggleProduct, key }) {
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
@@ -33,7 +23,6 @@ function Card({ pokemon, toggleProduct }) {
   }
 
   const [show, setShow] = useState(false);
-  const [toast, setToast] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -45,9 +34,9 @@ function Card({ pokemon, toggleProduct }) {
   }
 
   return (
-    <div>
+    <div key={pokemon.id}>
     <div className="Card">
-      <div className="Card__img">
+      <div className="Card__img" onClick={handleShow}>
         <img src={pokemon.sprites.front_default} alt={pokemon.name} />
       </div>
       <div className="Card__name">
@@ -69,20 +58,7 @@ function Card({ pokemon, toggleProduct }) {
       </div>
       <div className="Card__info">
         <div className="Card__types">
-          <Button
-            variant="link"
-            size="lg"
-            onClick={handleShow}
-            style={{
-              fontWeight: "bold",
-              textDecoration: "none",
-              marginLeft: "0",
-              padding: "0",
-            }}
-          >
-            + detalhes
-          </Button>
-          <Modal show={show} onHide={handleClose} centered>
+          <Modal show={show} onHide={handleClose} centered key={pokemon.id}>
             <Modal.Header>
               <Modal.Title>{capitalizeFirstLetter(pokemon.name)}</Modal.Title>
             </Modal.Header>
@@ -148,24 +124,18 @@ function Card({ pokemon, toggleProduct }) {
             </Modal.Footer>
           </Modal>
         </div>
-        <div className="Card__data Card__data--weight">
-          <p className="title">Preço</p>
-          <p>{returnMoneyValue(pokemon.height, pokemon.weight)}</p>
+        </div>
+        <div className="Card__name">
+          <p className="price">
+            {returnMoneyValue(pokemon.height, pokemon.weight)}
+          </p>
         </div>
         <div style={{ display: "flex", justifyContent: "center" }}>
           <Button variant="danger" onClick={add(pokemon)}>Adicionar ao Carrinho</Button> 
         </div>
       </div>
     </div>
-    </div>
   );
 }
 
-// const mapDispatchToProps = dispatch => ({
-//   toggleProduct: (pokemon) => dispatch(toggleProduct(pokemon))
-// })
-
-// export default connect(undefined, mapDispatchToProps)(Card);
-
-//() => toggleProduct(pokemon)
 export default Card
