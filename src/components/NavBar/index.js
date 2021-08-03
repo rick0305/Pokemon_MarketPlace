@@ -11,14 +11,11 @@ import { Styled } from './styles';
 
 function NavBar() {
 
-
   //cart
   const cart = useCart();
   const itemsCount = Object.keys(cart.cart).reduce((prev, curr) => {
     return prev + cart.cart[curr].quantity;
   }, 0)
-
-
 
   //login
   const { SignOut } = useAuth();

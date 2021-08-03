@@ -4,6 +4,8 @@ import Card from "./Card";
 import './App.css';
 import Cart from "../Cart";
 import Footer from "../../components/Footer"
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Home() {
   const [pokemonData, setPokemonData] = useState([]);
@@ -72,6 +74,7 @@ function Home() {
             <button onClick={next}>Próximo</button>
           </div>
           <Footer />
+          <ToastContainer toastStyle={{color: "black"}} />
         </div>
       )}
     </div>

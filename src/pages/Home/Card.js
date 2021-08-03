@@ -4,6 +4,8 @@ import typeColors from "./typeColors";
 import { Button, Modal, ModalBody, Toast } from "react-bootstrap";
 import { useCart } from "../../hooks/context/CartProvider";
 
+import { toast } from 'react-toastify';
+
 function Card({ pokemon, toggleProduct, key }) {
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -27,10 +29,24 @@ function Card({ pokemon, toggleProduct, key }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const notify = ({pokemon}) => {
+    toast.warning(`${pokemon.name} adicionado ao carrinho com sucesso!`, {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
+  }
+
   //context
   const cart = useCart()
   const add = (pokemon) => () => {
     cart.addToCart({pokemon})
+    console.log("Olha o toast!")
+    notify({pokemon})
   }
 
   return (
