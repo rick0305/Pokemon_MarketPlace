@@ -1,12 +1,11 @@
 import React, { useMemo } from 'react';
-import { Form, Button, ButtonGroup } from 'react-bootstrap';
-import Container from '../../components/Container';
+import { Form } from 'react-bootstrap';
 import { useFormik } from 'formik';
 import { useAuth } from '../../hooks/context/AuthProvider';
 import { useHistory, Link } from 'react-router-dom';
-import { Styled } from './styles';
-import { mixins } from "../../styles/mixins";
+import { Styled, LoginButton, LoginBox, LoginInput, LoginForm, LgTitle, LgText} from './styles';
 import { validationSchema } from './validation';
+
 
 function Login() {
   const { SignIn, error } = useAuth();
@@ -36,14 +35,14 @@ function Login() {
   );
 
   return (
-      <Container
-        title="Login"
-        size="sm"
+    <Styled.Container>
+      <LoginBox
       >
-        <Form onSubmit={formik.handleSubmit}>
-          <Form.Group className="mb-5">
+        <LoginForm onSubmit={formik.handleSubmit}>
+          <LgTitle>Login</LgTitle>
+          <Form.Group >
             <Form.Label></Form.Label>
-            <Form.Control
+            <LoginInput
               id="login"
               name="login"
               placeholder="Digite seu e-mail"
@@ -53,9 +52,9 @@ function Login() {
             />
             {ValidationLoginError}
           </Form.Group>
-          <Form.Group className="mb-5">
+          <Form.Group>
             <Form.Label></Form.Label>
-            <Form.Control
+            <LoginInput
               id="password"
               name="password"
               type="password"
@@ -65,17 +64,17 @@ function Login() {
               isInvalid={formik.errors.password}
             />
             {ValidationPasswordError}
-          </Form.Group>
-          {AppError}            
-          <ButtonGroup>
-            <Button variant="dark"  type="submit">Go!</Button>                                                            
-          </ButtonGroup>
-          <br />
-          <Link to="/register">
-            <Button variant="link" style={{font: `${mixins.fonts.bold}`, color: `${mixins.colors.secondary}`}} >Quero ser um mestre pokémon</Button>
-          </Link> 
-        </Form> 
-      </Container>
+          </Form.Group> 
+          {AppError}
+          
+          <LoginButton type="submit">Go!</LoginButton>
+        </LoginForm>
+        <LgText>Ainda não é um treinador Pokémon?</LgText>
+        <LgText> <Link to="/register">Clique aqui</Link> 
+        &nbsp;para iniciar sua jornada!
+        </LgText>
+      </LoginBox>
+    </Styled.Container>
   );
 }
 

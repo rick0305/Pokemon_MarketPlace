@@ -15,7 +15,7 @@ function RegisterProvider({children}) {
         const { data } = await api.get('/users');
         setRegisters(data);
       } catch (error) {
-        setError("Erro ao adquirir a lista de produtos");
+        setError("Erro ao adquirir a lista de usuários");
       }
   }, []);
  
@@ -48,7 +48,7 @@ function RegisterProvider({children}) {
           work
         });
       } catch (error) {
-        setError("Erro ao editar o produto");
+        setError("Erro ao editar perfil");
       }
   }, []);
 
@@ -60,7 +60,7 @@ function RegisterProvider({children}) {
           state => state.id !== id
         ));
       } catch (error) {
-        setError("Erro ao deletar o produto");
+        setError("Erro ao excluir perfil");
       }
   }, []);
 

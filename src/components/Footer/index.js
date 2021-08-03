@@ -1,18 +1,18 @@
 import React from "react";
 import {
   Box,
- /*  Container,
+  Container,
   Row,
   Column,
   FooterLink,
-  Heading, */
+  Heading,
   Title
 } from "./styles";
 
 function Footer () {
   return (
     <Box>
-      {/* <Container>
+      <Container>
         <Row>
           <Column>
             <Heading>About Us</Heading>
@@ -30,7 +30,7 @@ function Footer () {
             
           </Column>
         </Row>
-      </Container> */}
+      </Container>
       <Title>Todos os direitos reservados © - 2021</Title>
     </Box>
   );

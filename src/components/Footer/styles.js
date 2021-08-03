@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import { mixins } from "../../styles/mixins";
 
 export const Box = styled.div`
-	padding: 10px 0;
-	background-color: ${mixins.colors.foreground};
-	position: absolute;
+	padding: 20px 0;
+	background-color: ${mixins.colors.primary};
+	position: relative;
 	bottom: 0;
 	width: 100%;
 
@@ -44,9 +44,10 @@ export const FooterLink = styled.a`
 	margin-bottom: 20px;
 	font-size: 18px;
 	text-decoration: none;
+	color: white;
 
 	&:hover {
-		color: green;
+		color: yellow;
 		transition: 200ms ease-in;
 	}
 `;

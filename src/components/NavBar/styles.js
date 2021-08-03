@@ -1,84 +1,148 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { mixins } from '../../styles/mixins';
-
-// export  const  Container  =  styled.div`
-    
-//     margin: 0 auto;
-//     display:flex;
-//     justify-content: space-between;
-// `
+import { device } from '../../styles/device'
+import { Form, FormControl, Button } from 'react-bootstrap'
 
 export const Styled = {
 
     Nav: styled.nav`
-        position: absolute;
-        z-index: 1;  
-        width: 100%;
-        height: 70px;
+    
         display: flex;
-        padding: 14px 50px;
-        margin-bottom: 40px;
+        flex-direction: column;
+        position: absolute;
+        z-index:1;
+        width: 100%;
+        height: 130px;
+        align-items: center;
+        padding: 1rem;
+        justify-content: space-between;
+        background: rgb(240,36,45);
+        background: linear-gradient(340deg, rgba(240,36,45,1) 0%, rgba(246,160,32,1) 64%);
+
+        @media ${device.tablet} {
+            height: 70px;
+            flex-direction: row;
+        }
+    `,
+
+    NavArea: styled.div`
+        width: 90%;
+        height: 90%;
+        display: flex;
+        
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        background-color: ${mixins.colors.primary};
-
-        @media (max-width: 786px) {
-            flex-direction: column;
-        }
-    `,
-    NavBrand: styled.img`
-        width: 120px;
-        height: auto;
-        margin-left: 20px;
         
-        &:hover {
-            transform: scale(1.05);
+        
+        @media ${device.tablet} {
+            width: 80%;
+            padding-left: 1rem;
+            flex-direction: row; 
         }
     `,
 
-    NavItems: styled.ul`
-        list-style: none;
-        padding-inline-start: 0;
+    NavBrand: styled.img`
+        width: 100px;
+        height: auto;
+        margin: 0 1rem;
+
+        @media ${device.tablet} {
+            width: 120px;
+            margin-left: 2rem;
+        
+            &:hover {
+                transform: scale(1.05);
+            }
+            
+        }
+    `,
+
+    NavItems: styled.div`
         display: flex;
         align-items: center;
-        align-content: center;    
+        position: relative;
+        padding: 1rem;        
     `,
-
+    
     NavItem: styled(Link)`
-        margin-right: 20px;
-        cursor: pointer;
-        cursor: pointer;
+        margin-right: 1rem;
         color: ${mixins.colors.foreground};
         text-decoration: none;
-        font-size: 25px;
+        font-size: 1.5rem;
+        
+        @media ${device.tablet} {
+            margin-right: 1.5rem;
+            cursor: pointer;
+            font-size: 1.7rem;
 
-        &:hover {
-            transform: scale(1);
-            color: ${mixins.colors.secondary}
+            &:hover {
+                transform: scale(1);
+                color: ${mixins.colors.secondary}
+            }
+
+        } 
+    `,
+    NavForm: styled(Form) `
+        width: 90%;
+
+        @media ${device.tablet} {
+            width: 20%;
+        }
+    `,
+    NavSearch: styled(FormControl)`  
+        
+        position:relative;
+        height: 35px;
+        width: 90%;
+        display: flex;
+        align-self: center;
+        color: black;
+        text-align:center;
+        border:none;
+        border-radius: 10px;
+        background-color: white;
+
+        @media ${device.tablet} {  
+            width: 100%; 
+        } ;   
+    `,
+
+    Text: styled.p`
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: ${mixins.fonts.bold};
+        color: ${mixins.colors.primary};
+        background-color: ${mixins.colors.secondary};
+        height: 1.2rem;
+        width: 1.2rem;
+        border-radius: 50%;
+
+        @media ${device.tablet} {
+            height: 1.5rem;
+            width: 1.5rem;
         }
     `,
 
-    NavSearch: styled.input`    
-        width: 350px;
-        height: 35px;
-        display: flex;
+    NavItemButton: styled(Button)`
+        font-size: 25px;
+        color: white;
+        /* padding: 10px 10px; */
         align-self: center;
-        color: #fff;
-        text-align:center;
+        vertical-align: center;
         border: none;
-        border-radius: 10px;
-        background-color: rgb(210, 36, 45);   
+        border-radius: 5px;
+        cursor: pointer;
+        border: none;
+        background-color: transparent;
+        
+        &:hover {
+            color: ${mixins.colors.secondary};
+            background-color: transparent;
+            
+        }
     `,
-}
-    
+};
 
-// export const NavItemButton = styled(NavItem)`
-//     padding: 10px 10px;
-//     border: none;
-//     border-radius: 5px;
-//     cursor: pointer;
-//     border: 1px solid #663399;
-//     /* add additional styles for primary*/
-// `;

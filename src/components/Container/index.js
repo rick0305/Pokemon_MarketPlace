@@ -10,6 +10,13 @@ function Container({children, title, size}) {
             {children}
         </Styled.ContainerLG>
       );
+    case "md":
+      return (
+        <Styled.ContainerMD>
+          <Styled.Title>{title}</Styled.Title>
+            {children}
+        </Styled.ContainerMD>
+      );
     case "sm":
       return (
         <Styled.ContainerSM>
