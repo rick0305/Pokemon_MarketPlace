@@ -5,7 +5,7 @@ import Footer from "../../components/Footer"
 
 function Type() {
   return (
-      <div style={{marginTop: "70px"}}>
+      <div style={{marginTop: "70px", marginBottom: "30px"}}>
           {/* <TypeMenu /> */}
           <TypeRender />
           {/* <Footer /> */}

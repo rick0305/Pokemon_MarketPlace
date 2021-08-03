@@ -31,8 +31,36 @@ export const CartProvider = ({children}) => {
         })
     }
 
+    const removeFromCart = (productId) => {
+        setCart(old => {
+            const newCart = {}
+            Object.keys(old).forEach(id => {
+                if (id !==productId) {
+                    newCart[id] = old[id]
+                }
+            })
+            window.localStorage.setItem('cart', JSON.stringify(newCart))
+            return newCart
+        })
+    }
+
+    const changeQuantity = (productId, newQuantity) => {
+        setCart(old => {
+            const newCart = {}
+            Object.keys(old).forEach(id => {
+                const newProduct = {...old[id]}
+                if (id ===productId) {
+                    newProduct.quantity = newQuantity
+                }
+                newCart[id] = newProduct
+            })
+            window.localStorage.setItem('cart', JSON.stringify(newCart))
+            return newCart
+        })
+    }
+
     return (
-        <CartContext.Provider value={{cart, addToCart}}>
+        <CartContext.Provider value={{cart, addToCart, removeFromCart, changeQuantity}}>
             {children}
         </CartContext.Provider>
     )

@@ -19,6 +19,14 @@ function Cart() {
 
   const cart = useCart()
 
+  const remove = id => () => {
+    cart.removeFromCart(id)
+  }
+
+  const changeQuantity = (id) => (evt) => {
+    cart.changeQuantity(id, Number(evt.target.value))
+  }
+
   return (
     <Container title="Cart" size="md">
 
@@ -42,10 +50,10 @@ function Cart() {
           <ListGroup horizontal >
             <ListGroup.Item style={{width: "150px", height: "100px", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "20px"}}><img src={product.product.pokemon.sprites.front_default} /></ListGroup.Item>
             <ListGroup.Item style={{width: "350px", height: "100px", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "20px"}}>{product.product.pokemon.name}</ListGroup.Item>
-            <ListGroup.Item style={{width: "350px", height: "100px", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "20px"}}>{product.quantity}</ListGroup.Item>
+            <ListGroup.Item style={{width: "350px", height: "100px", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "20px"}}><input type="number" defaultValue={product.quantity} onBlur={changeQuantity(key)}></input></ListGroup.Item>
             <ListGroup.Item style={{width: "350px", height: "100px", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "20px"}}>{returnMoneyValue(height, weight)}</ListGroup.Item>
             <ListGroup.Item style={{width: "350px", height: "100px", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "20px"}}>{returnTotalValue(height, weight, product.quantity)}</ListGroup.Item>
-            <ListGroup.Item style={{width: "80px", height: "100px", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "24px"}}><FiTrash2 /></ListGroup.Item>
+            <ListGroup.Item style={{width: "80px", height: "100px", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "24px"}}><FiTrash2 onClick={remove(key)} /></ListGroup.Item>
           </ListGroup>
           </div>
         )
