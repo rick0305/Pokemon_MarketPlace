@@ -2,16 +2,13 @@ import styled from "styled-components";
 import { mixins } from "../../styles/mixins";
 
 const ContainerSM = styled.div`
-	margin:150px 0;
-	width:450px;
-	height: 100%;
+	margin:180px 0;
+	width:3 55px;
+	height: 479;
 	background-color: ${mixins.colors.primary};
-	display: flex;
-	flex-direction: column;
-	align-self: center;
-	border-radius:25px;
-	align-items: top;
-	justify-content: center;
+	align-self: flex-end;
+	margin-right: 200px;
+	padding: 50px;
 	padding: 50px;   
 `
 export const Styled = {
@@ -25,18 +22,27 @@ export const Styled = {
 		justify-content: center;
 		padding: none;
 	`,
+	ContainerMD: styled.div`
+		margin: 5% 0;
+		width: 90%;
+		height: 100%;
+		background-color: ${mixins.colors.primary};
+		display: flex;
+		flex-direction: column;
+		align-self: center;
+		border-radius: 25px;
+		align-items: top;
+		justify-content: center;
+		padding: none;
+	`,
 	Title: styled.h1`
 		height: 100px;
 		display: flex;        
 		flex-direction: row;
-		color: ${mixins.colors.third};
+		align-items: center;
+		justify-content: center;
+		color: ${mixins.colors.foreground};
 		font-family: ${mixins.fonts.bold};
-		font-size: ${mixins.typograph.title};
-	`,  
-	Logo:styled.img`
-		height: 180px;
-		width: 171px;
-		padding:0px;           
-		margin-top: 0%;
-	`      
+		font-size: ${mixins.typograph.titleLogin};
+	`,
 };

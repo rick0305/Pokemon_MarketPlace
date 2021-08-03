@@ -1,11 +1,11 @@
 import React, { useMemo } from 'react';
-import { Form, Button, ButtonGroup } from 'react-bootstrap';
-import Container from '../../components/Container';
+import { Form } from 'react-bootstrap';
 import { useFormik } from 'formik';
 import { useAuth } from '../../hooks/context/AuthProvider';
-import { useHistory } from 'react-router-dom';
-import { Styled } from './styles';
+import { useHistory, Link } from 'react-router-dom';
+import { Styled, LoginButton, LoginBox, LoginInput, LoginForm, LgTitle, LgText} from './styles';
 import { validationSchema } from './validation';
+
 
 function Login() {
   const { SignIn, error } = useAuth();
@@ -35,43 +35,46 @@ function Login() {
   );
 
   return (
-    <Container
-      title="Login"
-      size="sm"
-    >
-      <Form onSubmit={formik.handleSubmit}>
-        <Form.Group className="mb-5">
-          <Form.Label>Login</Form.Label>
-          <Form.Control
-            id="login"
-            name="login"
-            placeholder="Coloque o seu login"
-            onChange={formik.handleChange}
-            isValid={formik.touched.login && !formik.errors.login}
-            isInvalid={formik.errors.login}
-          />
-          {ValidationLoginError}
-        </Form.Group>
-        <Form.Group className="mb-5">
-          <Form.Label>Senha</Form.Label>
-          <Form.Control
-            id="password"
-            name="password"
-            type="password"
-            placeholder="Coloque a sua senha"
-            onChange={formik.handleChange}
-            isValid={formik.touched.password && !formik.errors.password}
-            isInvalid={formik.errors.password}
-          />
-          {ValidationPasswordError}
-        </Form.Group>
-        {AppError}    
-        <ButtonGroup className="d-grid gap-2"> 
-          <Button variant="danger" type="submit">Login</Button>               
-          <Button variant="link">Cadastrar-se</Button>
-        </ButtonGroup> 
-      </Form> 
-    </Container>
+    <Styled.Container>
+      <LoginBox
+      >
+        <LoginForm onSubmit={formik.handleSubmit}>
+          <LgTitle>Login</LgTitle>
+          <Form.Group >
+            <Form.Label></Form.Label>
+            <LoginInput
+              id="login"
+              name="login"
+              placeholder="Digite seu e-mail"
+              onChange={formik.handleChange}
+              isValid={formik.touched.login && !formik.errors.login}
+              isInvalid={formik.errors.login}
+            />
+            {ValidationLoginError}
+          </Form.Group>
+          <Form.Group>
+            <Form.Label></Form.Label>
+            <LoginInput
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Digite sua Senha"
+              onChange={formik.handleChange}
+              isValid={formik.touched.password && !formik.errors.password}
+              isInvalid={formik.errors.password}
+            />
+            {ValidationPasswordError}
+          </Form.Group> 
+          {AppError}
+          
+          <LoginButton type="submit">Go!</LoginButton>
+        </LoginForm>
+        <LgText>Ainda não é um treinador Pokémon?</LgText>
+        <LgText> <Link to="/register">Clique aqui</Link> 
+        &nbsp;para iniciar sua jornada!
+        </LgText>
+      </LoginBox>
+    </Styled.Container>
   );
 }
 
