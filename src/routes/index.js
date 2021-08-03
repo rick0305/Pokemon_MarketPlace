@@ -11,6 +11,7 @@ import Profile from '../pages/Profile';
 import Register from '../pages/Register';
 import WhoWeAre from '../pages/WhoWeAre';
 import NotFound from '../pages/NotFound';
+import Type from '../pages/PokemonType';
 
 // import { Container } from './styles';
 
@@ -29,6 +30,7 @@ function Routes() {
           {auth && <Route path="/profile" component={Profile} />}
           {auth && <Route path="/register" component={Register} />}
           {auth && <Route path="/whoweare" component={WhoWeAre} />}
+          {auth && <Route path="/types" component={Type} />}
           {/* Aqui eu especifico para minha aplicação que qualquer parâmetro 
               passado diferente especificados acima vá para pagina notfound e exibe uma
               mensagem de pagina não encontrada*/}          
