@@ -1,8 +1,8 @@
 import React, { useMemo, useEffect } from 'react';
 import { useFormik } from 'formik';
-import { Form, Button, Col, Row } from 'react-bootstrap';
+import { Form, Col, Row } from 'react-bootstrap';
 import { useHistory, useLocation, useParams } from 'react-router-dom';
-import { Styled } from './styles';
+import { Styled, ProfileButton, ProfileButtonAlt  } from './styles';
 import { useRegister } from '../../hooks/context/RegisterProvider';
 import { validationSchema } from './validation';
 
@@ -12,9 +12,14 @@ function CreateUser() {
   const { state } = useLocation()
   const { error, postUser, putUser } = useRegister();
 
-  useEffect(() => {
+  const handleCancel = async () => {
+    await 
+    history.push("/");
+  };
+
+  /* useEffect(() => {
     console.log(state);
-  });
+  }); */
 
   const formik = useFormik({
     initialValues: {
@@ -40,7 +45,6 @@ function CreateUser() {
         history.push("/home");
         return
       }
-      console.log("teste", values);
       await postUser(values);
       history.push("/home");
     }
@@ -80,8 +84,8 @@ function CreateUser() {
       <Styled.Title>Inicie sua jornada</Styled.Title>
       <Form onSubmit={formik.handleSubmit}>
         <Form.Group className="mb-3">
-          <Form.Label>Login</Form.Label>
-          <Form.Control
+          <Styled.ProfileLabel>Login</Styled.ProfileLabel>
+          <Styled.ProfileInput
             id="login"
             name="login"
             placeholder="Digite um login"
@@ -93,8 +97,8 @@ function CreateUser() {
         </Form.Group>
 
         <Form.Group className="mb-3">
-          <Form.Label>Senha</Form.Label>
-          <Form.Control
+          <Styled.ProfileLabel>Senha</Styled.ProfileLabel>
+          <Styled.ProfileInput
             id="password"
             name="password"
             type="password"
@@ -108,8 +112,8 @@ function CreateUser() {
         <Row>
           <Col xs={7}>
             <Form.Group className="mb-3">
-              <Form.Label>Nome Completo</Form.Label>
-              <Form.Control
+              <Styled.ProfileLabel>Nome Completo</Styled.ProfileLabel>
+              <Styled.ProfileInput
                 id="name"
                 name="name"
                 placeholder="Coloque o seu nome completo"
@@ -122,7 +126,7 @@ function CreateUser() {
           </Col>
           <Col>
             <Form.Group className="mb-3">
-              <Form.Label>Sexo</Form.Label>
+              <Styled.ProfileLabel>Sexo</Styled.ProfileLabel>
               <Form.Select 
                 id="gender"
                 name="gender"
@@ -141,8 +145,8 @@ function CreateUser() {
         <Row>
           <Col>
             <Form.Group className="mb-3">
-              <Form.Label>Origem</Form.Label>
-              <Form.Control
+              <Styled.ProfileLabel>Origem</Styled.ProfileLabel>
+              <Styled.ProfileInput
                 id="origin"
                 name="origin"
                 type="text"
@@ -156,8 +160,8 @@ function CreateUser() {
           </Col>
           <Col>
             <Form.Group className="mb-3">
-              <Form.Label>Função</Form.Label>
-              <Form.Control
+              <Styled.ProfileLabel>Função</Styled.ProfileLabel>
+              <Styled.ProfileInput
                 id="work"
                 name="work"
                 placeholder="Coloque sua função"
@@ -170,9 +174,12 @@ function CreateUser() {
           </Col>
         </Row>     
         {AppError}
-        <Button variant="primary" type="submit">
-          Cadastrar
-        </Button>
+        <ProfileButton type="submit">
+          Salvar
+        </ProfileButton>{" "}
+        <ProfileButtonAlt onClick={handleCancel}>
+          Cancelar
+        </ProfileButtonAlt>
       </Form> 
     </Styled.Container>
     </>    

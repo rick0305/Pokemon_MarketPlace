@@ -3,13 +3,14 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import { useAuth } from '../hooks/context/AuthProvider';
 import { Styled } from './styles';
 import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import Cart from '../pages/Cart';
 import Profile from '../pages/Profile';
 import Register from '../pages/Register';
 import WhoWeAre from '../pages/WhoWeAre';
+import Team from '../pages/Team';
+import Contact from '../pages/Contact';
 import NotFound from '../pages/NotFound';
 import Type from '../pages/PokemonType';
 
@@ -31,6 +32,8 @@ function Routes() {
           {auth && <Route path="/register" component={Register} />}
           {auth && <Route path="/whoweare" component={WhoWeAre} />}
           {auth && <Route path="/types" component={Type} />}
+          {auth && <Route path="/team" component={Team} />}
+          {auth && <Route path="/contact" component={Contact} />}
           {/* Aqui eu especifico para minha aplicação que qualquer parâmetro 
               passado diferente especificados acima vá para pagina notfound e exibe uma
               mensagem de pagina não encontrada*/}          
