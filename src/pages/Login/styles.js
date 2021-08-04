@@ -2,11 +2,10 @@ import styled from "styled-components";
 import { mixins } from "../../styles/mixins";
 import bg from "../../assets/loginPage.png";
 import bgSmall from "../../assets/loginPage600.png";
-import { Form, FormControl} from 'react-bootstrap';
+import { Form, FormControl } from 'react-bootstrap';
 import { device } from '../../styles/device'
 
 export const Styled = {
-
   Container: styled.div`
     width: 110%;
     height: 110%;

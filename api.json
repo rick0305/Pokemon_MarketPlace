@@ -9,8 +9,16 @@
       "origin": "teste",
       "work": "teste",
       "access_token": "liberado"
+    },
+    {
+      "login": "reb.gaia",
+      "password": "admin123",
+      "name": "Rebeca Gaia",
+      "gender": "male",
+      "origin": "sinnoh",
+      "work": "Mestre",
+      "id": 2
     }
   ],
-  "products": [
-  ]
+  "products": []
 }

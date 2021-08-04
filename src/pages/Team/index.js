@@ -1,11 +1,23 @@
 import React from 'react';
-import Container from '../../components/Container';
+import Footer from '../../components/Footer';
+import { Styled } from './styles';
 
 function Team() {
-  return <Container title="Team" size="lg">
-
-  </Container>
-   
+  return (
+    <div style={{overflowY: "scroll"}}>
+      <div>
+        <Styled.Container>
+          <Styled.Title>Time</Styled.Title>
+          
+                   
+          
+        </Styled.Container>
+      </div>
+      
+      <Footer />
+    </div>
+    
+  )
 }
 
 export default Team;

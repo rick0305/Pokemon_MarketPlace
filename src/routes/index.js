@@ -27,13 +27,12 @@ function Routes() {
           <Route path="/" exact component={Home}></Route>
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register}></Route>
+          <Route path="/team" component={Team} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/whoweare" component={WhoWeAre} />
           {auth && <Route path="/cart" component={Cart} />}
           {auth && <Route path="/profile" component={Profile} />}
-          {auth && <Route path="/register" component={Register} />}
-          {auth && <Route path="/whoweare" component={WhoWeAre} />}
           {auth && <Route path="/types" component={Type} />}
-          {auth && <Route path="/team" component={Team} />}
-          {auth && <Route path="/contact" component={Contact} />}
           {/* Aqui eu especifico para minha aplicação que qualquer parâmetro 
               passado diferente especificados acima vá para pagina notfound e exibe uma
               mensagem de pagina não encontrada*/}          

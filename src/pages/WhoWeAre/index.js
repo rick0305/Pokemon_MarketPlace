@@ -1,11 +1,13 @@
 import React from 'react';
-import Container from '../../components/Container';
+import { Styled } from './styles';
 
 function WhoWeAre() {
-  return <Container title="WhoWeAre" size="lg">
-
-  </Container>
-   
+  return (
+    <Styled.Container>
+      <Styled.Title>Sobre nós</Styled.Title>
+      
+    </Styled.Container>
+  )
 }
 
 export default WhoWeAre;
