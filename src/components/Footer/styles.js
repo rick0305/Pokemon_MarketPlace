@@ -3,8 +3,8 @@ import { mixins } from "../../styles/mixins";
 
 export const Box = styled.div`
 	padding: 50px 0 30px 0;
-	background: rgb(240,36,45);
-        background: linear-gradient(340deg, rgba(240,36,45,1) 0%, rgba(246,160,32,1) 64%);	position: relative;
+    background:  ${mixins.styles.gradiente};
+	position: relative;
 	bottom: 0;
 	width: 100%;
 

@@ -11,7 +11,7 @@ export const Styled = {
     width: 110%;
     height: 110%;
     background-size: center;
-    background: url(${bgSmall}) no-repeat ;
+    background: ${mixins.styles.gradiente};
     display: flex;
     align-self: center;
     justify-content: center;
@@ -53,14 +53,13 @@ export const LoginBox = styled.div`
             width: 450px;
             justify-content: center;
             border-radius: 10px;
-            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
-                              0 10px 10px rgba(0,0,0,0.22);      
+            box-shadow: ${mixins.styles.shadowBox}     
   }
 `;
 
 export const LoginButton = styled.button`
-      background-color:${mixins.colors.dark};
-      color:${mixins.colors.secondary};
+      background-color:${mixins.colors.secondary};
+      color:${mixins.colors.dark};
       text-align: center;
       font-size: 18px;
       width: 300px;
@@ -68,9 +67,9 @@ export const LoginButton = styled.button`
       border-radius: 10px;
       border: none;
       font-family: ${mixins.fonts.bold};
+      margin: 0.5rem;
 
-      box-shadow: 0 5px 5px rgba(0,0,0,0.1), 
-                              0 5px 5px rgba(0,0,0,0.1);
+      box-shadow: ${mixins.styles.shadowButton};
 
 
       &:active {
@@ -82,6 +81,11 @@ export const LoginButton = styled.button`
 }
 
 `;
+
+export const CancelButton = styled(LoginButton)`
+      background-color:${mixins.colors.dark};
+      color:${mixins.colors.secondary};
+`
 
 export const LoginInput = styled(FormControl) `
   	background-color: #eee;

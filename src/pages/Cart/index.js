@@ -3,6 +3,7 @@ import Container from '../../components/Container';
 import {useCart} from "../../hooks/context/CartProvider"
 import {ListGroup} from "react-bootstrap"
 import { FiTrash2 } from 'react-icons/fi'
+import { Styled } from './styles'
 
 import {mixins} from "../../styles/mixins"
 
@@ -22,16 +23,21 @@ function Cart() {
   return (
     <Container title="Cart" size="md">
 
-      <div style={{display: "flex", justifyContent: "center", alignItems: "center", marginBottom: "5px"}}>
-      <ListGroup horizontal >
-        <ListGroup.Item style={{width: "150px", height: "50px", backgroundColor: `${mixins.colors.primary}`, color: "white", fontWeight: "700", border: "none", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "20px"}}></ListGroup.Item>
-        <ListGroup.Item style={{width: "350px", height: "50px", backgroundColor:`${mixins.colors.primary}`, color: "white", fontWeight: "700", border: "none", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "20px"}}>Produto</ListGroup.Item>
+      <Styled.ItemsGroup >
+      <Styled.ListGroup horizontal >
+        {/* <Styled.ListGroupItem></Styled.ListGroupItem> */}
+        <Styled.ListGroupItem>Produto</Styled.ListGroupItem>
+        <Styled.ListGroupItem>Quantidade</Styled.ListGroupItem>
+        <Styled.ListGroupItem>Preço Unitário</Styled.ListGroupItem>
+        <Styled.ListGroupItem>Preço Total</Styled.ListGroupItem>
+        {/* <Styled.ListGroupItem></Styled.ListGroupItem> */}
+        {/* <ListGroup.Item style={{width: "350px", height: "50px", backgroundColor:`${mixins.colors.primary}`, color: "white", fontWeight: "700", border: "none", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "20px"}}>Produto</ListGroup.Item>
         <ListGroup.Item style={{width: "350px", height: "50px", backgroundColor:`${mixins.colors.primary}`, color: "white", fontWeight: "700", border: "none", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "20px"}}>Quantidade</ListGroup.Item>
         <ListGroup.Item style={{width: "350px", height: "50px", backgroundColor:`${mixins.colors.primary}`, color: "white", fontWeight: "700", border: "none", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "20px"}}>Preço Unitário</ListGroup.Item>
         <ListGroup.Item style={{width: "350px", height: "50px", backgroundColor:`${mixins.colors.primary}`, color: "white", fontWeight: "700", border: "none", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "20px"}}>Preço Total</ListGroup.Item>
-        <ListGroup.Item style={{width: "80px", height: "50px", backgroundColor:`${mixins.colors.primary}`, color: "white", fontWeight: "700", border: "none", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "24px"}}></ListGroup.Item>
-      </ListGroup>
-      </div>
+        <ListGroup.Item style={{width: "80px", height: "50px", backgroundColor:`${mixins.colors.primary}`, color: "white", fontWeight: "700", border: "none", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "24px"}}></ListGroup.Item> */}
+      </Styled.ListGroup>
+      </Styled.ItemsGroup>
 
       {Object.keys(cart.cart).map(key => {
         const product = cart.cart[key]

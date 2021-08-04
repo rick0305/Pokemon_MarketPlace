@@ -53,7 +53,7 @@ export default createGlobalStyle`
     }
   }
   body {
-    background: ${mixins.colors.background};
+    background: #fff;
     --webkit-font-smoothing: antialiased;
   }
   #root, body, html {

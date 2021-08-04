@@ -3,7 +3,7 @@ import { Form } from 'react-bootstrap';
 import { useFormik } from 'formik';
 import { useAuth } from '../../hooks/context/AuthProvider';
 import { useHistory, Link } from 'react-router-dom';
-import { Styled, LoginButton, LoginBox, LoginInput, LoginForm, LgTitle, LgText} from './styles';
+import { Styled, LoginButton, LoginBox, LoginInput, LoginForm, LgTitle, LgText, CancelButton} from './styles';
 import { validationSchema } from './validation';
 
 
@@ -22,6 +22,11 @@ function Login() {
       history.push("/home");
     }
   });
+
+  const handleCancel = async () => {
+    await 
+    history.push("/");
+  };
 
   const AppError = useMemo(
     () => <Styled.Error>{error}</Styled.Error>, [error]
@@ -68,6 +73,7 @@ function Login() {
           {AppError}
           
           <LoginButton type="submit">Go!</LoginButton>
+          <CancelButton onClick={handleCancel}>Cancelar</CancelButton>
         </LoginForm>
         <LgText>Ainda não é um treinador Pokémon?</LgText>
         <LgText> <Link to="/register">Clique aqui</Link> 

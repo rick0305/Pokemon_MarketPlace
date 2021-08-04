@@ -80,6 +80,7 @@ function CreateUser() {
 
   return (
     <>
+    <Styled.PageContainer>
     <Styled.Container>
       <Styled.Title>Inicie sua jornada</Styled.Title>
       <Form onSubmit={formik.handleSubmit}>
@@ -182,6 +183,7 @@ function CreateUser() {
         </ProfileButtonAlt>
       </Form> 
     </Styled.Container>
+    </Styled.PageContainer>
     </>    
   );
 }

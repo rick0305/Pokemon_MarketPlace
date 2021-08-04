@@ -25,15 +25,15 @@ export const Styled = {
 	`,
 	ContainerMD: styled.div`
 		margin: 5% 0;
-		width: 90%;
+		width: 80%;
 		height: 100%;
-		background-color: ${mixins.colors.primary};
+		background-color: ${mixins.colors.foreground};
 		display: flex;
 		flex-direction: column;
 		align-self: center;
-		border-radius: 25px;
+		border-radius: 10px;
 		align-items: top;
-		justify-content: center;
+		/* justify-content: center; */
 		padding: none;
 	`,
 	Title: styled.h1`

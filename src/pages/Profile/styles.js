@@ -18,8 +18,7 @@ export const Styled = {
     justify-content: center;
     padding: 1rem 3rem;
 
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
-                        0 10px 10px rgba(0,0,0,0.22);
+    box-shadow: ${mixins.styles.shadowBox};
       
   `,
   Title: styled.h1`
@@ -76,8 +75,7 @@ export const ProfileButton = styled(Button)  `
   margin-right: 1rem; 
   color: ${mixins.colors.dark};
   font-family: ${mixins.fonts.bold};
-  box-shadow: 0 5px 5px rgba(0,0,0,0.25), 
-                        0 5px 5px rgba(0,0,0,0.22);
+  box-shadow: ${mixins.styles.shadowButton};
 
 `;
 

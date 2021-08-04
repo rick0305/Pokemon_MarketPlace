@@ -32,13 +32,14 @@ function NavBar() {
   return (        
     <Styled.Nav>
       <Styled.NavArea>        
-          <Link to="/home"><Styled.NavBrand src={Logo}></Styled.NavBrand></Link>
+          <Link to="/"><Styled.NavBrand src={Logo}></Styled.NavBrand></Link>
           <Styled.NavItems>
               {itemsCount > 0 &&
                 <Styled.Text>{itemsCount}</Styled.Text>
               }
               <Styled.NavItem to="/cart"><FiShoppingCart/></Styled.NavItem>
-              <Styled.NavItem to="/profile"><FiUser /></Styled.NavItem>
+              {auth ? <Styled.NavItem to="/profile"><FiUser /></Styled.NavItem> : 
+                <Styled.NavItem to="/login"><FiUser /></Styled.NavItem>}
               <Styled.NavItem> {auth ? <FiLogOut onClick={SignOut}/> : <FiLogIn onClick={handleClick} /> }</Styled.NavItem>
           </Styled.NavItems>
           </Styled.NavArea>

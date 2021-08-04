@@ -20,24 +20,25 @@ function Routes() {
   const {auth} = useAuth()
   return (
     <Styled.AppLayout>
-     <NavBar />
       {/* <Styled.Logo imgUrl={process.env.PUBLIC_URL + '../assets.back.jpg'} ></Styled.Logo> */}
       <Styled.PageLayout>
         <Switch>
-          <Route path="/" exact component={Home}></Route>
           <Route path="/login" component={Login} />
-          <Route path="/register" component={Register}></Route>
-          {auth && <Route path="/cart" component={Cart} />}
-          {auth && <Route path="/profile" component={Profile} />}
-          {auth && <Route path="/register" component={Register} />}
-          {auth && <Route path="/whoweare" component={WhoWeAre} />}
-          {auth && <Route path="/types" component={Type} />}
-          {auth && <Route path="/team" component={Team} />}
-          {auth && <Route path="/contact" component={Contact} />}
-          {/* Aqui eu especifico para minha aplicação que qualquer parâmetro 
-              passado diferente especificados acima vá para pagina notfound e exibe uma
-              mensagem de pagina não encontrada*/}          
-          <Redirect from="*" to={NotFound}></Redirect>
+          <Route path="/register" component={Register} />
+          <>
+            <NavBar />
+              <Route path="/" exact component={Home} />
+              <Route path="/cart" component={Cart} />
+              <Route path="/profile" component={Profile} />
+              {auth && <Route path="/whoweare" component={WhoWeAre} />}
+              {auth && <Route path="/types" component={Type} />}
+              {auth && <Route path="/team" component={Team} />}
+              {auth && <Route path="/contact" component={Contact} />}
+              {/* Aqui eu especifico para minha aplicação que qualquer parâmetro 
+                  passado diferente especificados acima vá para pagina notfound e exibe uma
+                  mensagem de pagina não encontrada*/}          
+              <Redirect from="*" to={NotFound}></Redirect>
+          </>
         </Switch>
       </Styled.PageLayout>
       {/* {auth && <Footer />} */}

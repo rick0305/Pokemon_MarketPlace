@@ -18,7 +18,7 @@ export const Styled = {
         padding: 1rem;
         justify-content: space-between;
         background: rgb(240,36,45);
-        background: linear-gradient(340deg, rgba(240,36,45,1) 0%, rgba(246,160,32,1) 64%);
+        background:  ${mixins.styles.gradiente};
 
         @media ${device.tablet} {
             height: 70px;

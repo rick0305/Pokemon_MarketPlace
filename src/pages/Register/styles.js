@@ -5,6 +5,17 @@ import { FormControl, FormSelect, Button, FormLabel } from 'react-bootstrap';
 import { mixins } from "../../styles/mixins";
 
 export const Styled = {
+
+  PageContainer: styled.div`
+    width: 110%;
+    height: 110%;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    flex-direction: column;
+    background:  ${mixins.styles.gradiente};
+  
+  `,
   Container: styled.div`
     margin: 6rem auto;
     width: 650px;
@@ -17,9 +28,9 @@ export const Styled = {
     align-items: center;
     justify-content: center;
     padding: 1rem 3rem;
+    box-shadow: ${mixins.styles.shadowBox};
 
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
-                        0 10px 10px rgba(0,0,0,0.22);
+    
   `,
   Title: styled.h1`
 		height: 100px;
@@ -73,8 +84,7 @@ export const ProfileButton = styled(Button)  `
   margin-right: 1rem; 
   color: ${mixins.colors.dark};
   font-family: ${mixins.fonts.bold};
-  box-shadow: 0 5px 5px rgba(0,0,0,0.25), 
-                        0 5px 5px rgba(0,0,0,0.22);
+  box-shadow: ${mixins.styles.shadowButton}
 
 `;
 
