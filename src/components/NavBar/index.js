@@ -5,6 +5,7 @@ import Logo from '../../assets/logov1.png'
 import { useAuth } from '../../hooks/context/AuthProvider';
 import { useHistory } from 'react-router-dom';
 import {useCart} from "../../hooks/context/CartProvider"
+import TypeMenu from '../TypeMenu';
 
 import { Styled } from './styles';
 
@@ -25,7 +26,7 @@ function NavBar() {
     await SignOut()
     history.push("/")
   }
-  return (        
+  return (       
     <Styled.Nav>
         <Link to="/home"><Styled.NavBrand src={Logo}></Styled.NavBrand></Link>
         <Styled.NavSearch type="search" placeholder="Search" aria-label="Search"></Styled.NavSearch>
@@ -37,7 +38,7 @@ function NavBar() {
             <Styled.NavItem to="/profile"><FiUser /></Styled.NavItem>
             <Styled.NavItem onClick={handleClick}><FiLogOut/></Styled.NavItem>
         </Styled.NavItems>
-    </Styled.Nav>        
+    </Styled.Nav>  
   );
 }
 

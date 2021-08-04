@@ -6,6 +6,7 @@ import Cart from "../Cart";
 import Footer from "../../components/Footer"
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import TypeMenu from "../../components/TypeMenu";
 
 function Home() {
   const [pokemonData, setPokemonData] = useState([]);
@@ -60,9 +61,8 @@ function Home() {
         <h1 style={{ textAlign: "center" }}>Loading...</h1>
       ) : (
         <div>
-          <div className="btn">
-            <button onClick={prev}>Anterior</button>
-            <button onClick={next}>Próximo</button>
+          <div style={{marginTop: "70px", marginBottom: "30px"}}>
+            <TypeMenu />
           </div>
           <div className="grid-container">
             {pokemonData.map((pokemon, i) => {
