@@ -11,7 +11,7 @@ export const CartProvider = ({children}) => {
         if(cartLocal){
             setCart(JSON.parse(cartLocal))
         }
-    })
+    }, [])
 
     const addToCart = (product) => {
         setCart(old => {

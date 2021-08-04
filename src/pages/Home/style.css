@@ -7,19 +7,43 @@ img {
     height: 120px;
     width: 120px;
 }
+.Card__img img:hover {
+    height: 130px;
+    width: 130px;
+}
 
 .paragraph {
     font-size: 24px;
 }
+.price {
+    font-size: 32px;
+    padding-top: 10px;
+    font-weight: 900;
+}
 
 .Card {
-    background: rgb(212, 209, 209);
+    background: rgb(236, 236, 236);
     border-radius: 10px;
+    transition: 0.5s;
+}
+.Card:hover {
+    background: rgb(255, 234, 234);
+    transition: 0.5s;
 }
 
 .Card__img {
     text-align: center;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    height: 130px;
+    width: 130px;
+    padding: 10px;
 }
+
+/* .Card__img:hover {
+    box-shadow: ;
+} */
 
 .Card__types {
     display: flex;
@@ -51,3 +75,4 @@ img {
 .Card__data .title {
     font-weight: 700;
 }
+

@@ -6,10 +6,10 @@ const ContainerSM = styled.div`
     width:355px;
     height: 479px;
 	background-color: ${mixins.colors.primary};
-    align-self: flex-end;
-    margin-right: 200px;
-    padding: 50px;
-	//border-radius:25px;	 	  
+	align-self: flex-end;
+	margin-right: 200px;
+	padding: 50px;
+	padding: 50px;   
 `
 export const Styled = {
     ContainerSM,

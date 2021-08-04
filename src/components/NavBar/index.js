@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FiUser, FiLogOut, FiShoppingCart } from 'react-icons/fi'
 import Logo from '../../assets/logov1.png'
