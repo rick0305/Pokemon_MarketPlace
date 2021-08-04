@@ -15,18 +15,15 @@ function Footer () {
       <Container>
         <Row>
           <Column>
-            <Heading>About Us</Heading>
-            <FooterLink href="#">Aim</FooterLink>
+            <FooterLink href="#">Sobre nós</FooterLink>
             
           </Column>
           <Column>
-            <Heading>Services</Heading>
-            <FooterLink href="#">Writing</FooterLink>
+            <FooterLink href="#">Equipe</FooterLink>
             
           </Column>
           <Column>
-            <Heading>Contact Us</Heading>
-            <FooterLink href="#">Uttar Pradesh</FooterLink>
+            <FooterLink href="#">Contatos</FooterLink>
             
           </Column>
         </Row>

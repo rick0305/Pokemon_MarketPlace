@@ -11,6 +11,7 @@ const ContainerSM = styled.div`
 	padding: 50px;
 	padding: 50px;   
 `
+
 export const Styled = {
 	ContainerSM,
 	ContainerLG: styled(ContainerSM)`       

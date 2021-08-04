@@ -24,6 +24,13 @@ function Container({children, title, size}) {
             {children}
         </Styled.ContainerSM>
       );
+    case "pages":
+      return (
+        <Styled.ContainerPages>
+          <Styled.Title>{title}</Styled.Title>
+            {children}
+        </Styled.ContainerPages>
+      );
     default:
         break;
     
