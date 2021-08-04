@@ -2,9 +2,9 @@
 //Aqui é onde eu exporto um objeto
 
 export const mixins = {
-	colors:{             
-		background_login:"#FFA500",
-		background:"#E5E5E5",
+
+    colors:{             
+        background:"#E5E5E5",
 		primary: "#F0242D",
 		secondary: "#F6BD20",
 		foreground: "#FFF",
@@ -24,6 +24,7 @@ export const mixins = {
 		subTitle: "16px",
 		paragraph:"12px",
 		campoObrigatorio:"14px",
+        EsqueceuSenha:"10px",
 	},
 	size:{
 		lg:"240px",  //tamanho grande

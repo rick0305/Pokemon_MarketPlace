@@ -5,6 +5,7 @@ import Logo from '../../assets/logov1.png'
 import { useAuth } from '../../hooks/context/AuthProvider';
 import { useHistory } from 'react-router-dom';
 import {useCart} from "../../hooks/context/CartProvider"
+import TypeMenu from '../TypeMenu';
 
 
 import { Styled } from './styles';

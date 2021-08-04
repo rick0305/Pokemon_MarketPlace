@@ -79,8 +79,10 @@ function TypeRender() {
 
   return (
     <div style={{overflowY: "scroll", height: "100vh"}}>
+        <div style={{marginBottom: "30px"}}>
         <TypeMenu />
-        <h1>value: {value}</h1>
+        </div>
+        {/* <h1>value: {value}</h1> */}
       {loading ? (              
         <h1 style={{ textAlign: "center" }}>Loading...</h1>
       ) : (
