@@ -1,11 +1,13 @@
 import React from 'react';
-import Container from '../../components/Container';
+import { Styled } from './styles';
 
 function Contact() {
-  return <Container title="Contact" size="lg">
-
-  </Container>
-   
+  return (
+    <Styled.Container>
+      <Styled.Title>Contatos</Styled.Title>
+      
+    </Styled.Container>
+  )
 }
 
 export default Contact;

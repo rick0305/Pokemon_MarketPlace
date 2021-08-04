@@ -1,55 +1,55 @@
-import React, { useMemo, useEffect } from 'react';
-import { useFormik } from 'formik';
+import React, { useMemo, useState } from 'react';
 import { Form, Col, Row } from 'react-bootstrap';
-import { useHistory, useLocation, useParams } from 'react-router-dom';
-import { Styled, ProfileButton, ProfileButtonAlt  } from './styles';
-import { useRegister } from '../../hooks/context/RegisterProvider';
+import { useFormik } from 'formik';
+import { useHistory } from 'react-router-dom';
+import { Styled, ProfileButton, ProfileButtonAlt } from './styles';
 import { validationSchema } from './validation';
+import { useUser } from '../../hooks/context/UserProvider/index'
+import { api } from '../../services/api'
+import Swal from 'sweetalert2';
+
 
 function CreateUser() {
   const history = useHistory();
-  const { id } = useParams()
-  const { state } = useLocation()
-  const { error, postUser, putUser } = useRegister();
-
+  const [error, setError] = useState("");
+  const { getUsers, postUsers, putUser } = useUser();
+  
   const handleCancel = async () => {
     await 
-    history.push("/");
+    history.push("/login");
   };
-
-  /* useEffect(() => {
-    console.log(state);
-  }); */
 
   const formik = useFormik({
     initialValues: {
-      login: state ? state.usuarios.login : "",
-      password: state ? state.usuarios.password : "",
-      name: state ? state.usuarios.name : "",
-      gender: state ? state.usuarios.gender : "",
-      origin: state ? state.usuarios.origin : "",
-      work: state ? state.usuarios.work : "",
+      login: "",
+      password: "",
+      name: "",
+      gender: "",
+      origin: "",
+      work: "",
     },
     validationSchema,
-    onSubmit: async (values) => {
-      if(!!id) {
-        await putUser({
-          id,
-          login: values.login,
-          password: values.password,
-          name: values.name,
-          gender: values.gender,
-          origin: values.origin,
-          work: values.work,
+    onSubmit: async ({login, password, name, gender, origin, work}) => {
+      /* await postUsers(values); */
+      try {
+        await api.post('/users', {
+          login, 
+          password, 
+          name, 
+          gender, 
+          origin, 
+          work       
         });
-        history.push("/home");
-        return
+        Swal.fire("Usuário cadastrado com sucesso");
+        await
+        history.push("/login");
+      } catch (error) {
+        setError("Erro ao cadastrar o usuario");
       }
-      await postUser(values);
-      history.push("/home");
     }
   });
 
+  
   const AppError = useMemo(
     () => <Styled.Error>{error}</Styled.Error>, [error]
   );
@@ -79,8 +79,6 @@ function CreateUser() {
   );
 
   return (
-    <>
-    <Styled.PageContainer>
     <Styled.Container>
       <Styled.Title>Inicie sua jornada</Styled.Title>
       <Form onSubmit={formik.handleSubmit}>
@@ -128,17 +126,17 @@ function CreateUser() {
           <Col>
             <Form.Group className="mb-3">
               <Styled.ProfileLabel>Sexo</Styled.ProfileLabel>
-              <Form.Select 
+              <Styled.ProfileSelect
                 id="gender"
                 name="gender"
                 onChange={formik.handleChange}            
                 isValid={formik.touched.gender && !formik.errors.gender}
                 isInvalid={formik.errors.gender}>
-                  <option>Selecione seu gênero</option>
-                  <option value="male">Feminino</option>
-                  <option value="female">Masculino</option>
-                  <option value="others">Prefiro não responder</option>
-              </Form.Select>
+                  <Styled.ProfileOption>Selecione seu gênero</Styled.ProfileOption>
+                  <Styled.ProfileOption value="male">Feminino</Styled.ProfileOption>
+                  <Styled.ProfileOption value="female">Masculino</Styled.ProfileOption>
+                  <Styled.ProfileOption value="others">Prefiro não responder</Styled.ProfileOption>
+              </Styled.ProfileSelect>
               {ValidationGenderError}
             </Form.Group>
           </Col>
@@ -147,15 +145,24 @@ function CreateUser() {
           <Col>
             <Form.Group className="mb-3">
               <Styled.ProfileLabel>Origem</Styled.ProfileLabel>
-              <Styled.ProfileInput
+              <Styled.ProfileSelect
                 id="origin"
                 name="origin"
-                type="text"
-                placeholder="Coloque sua origem"
-                onChange={formik.handleChange}
+                onChange={formik.handleChange}            
                 isValid={formik.touched.origin && !formik.errors.origin}
-                isInvalid={formik.errors.origin}          
-              />
+                isInvalid={formik.errors.origin}>
+                  <Styled.ProfileOption>Selecione sua origem</Styled.ProfileOption>
+                  <Styled.ProfileOption value="kanto">Kanto</Styled.ProfileOption>
+                  <Styled.ProfileOption value="johto">Johto</Styled.ProfileOption>
+                  <Styled.ProfileOption value="hoenn">Hoenn</Styled.ProfileOption>
+                  <Styled.ProfileOption value="sinnoh">Sinnoh</Styled.ProfileOption>
+                  <Styled.ProfileOption value="unova">Unova</Styled.ProfileOption>
+                  <Styled.ProfileOption value="kalos">Kalos</Styled.ProfileOption>
+                  <Styled.ProfileOption value="sevil_islands">Sevil Islands</Styled.ProfileOption>
+                  <Styled.ProfileOption value="ilhas_laranjas">Ilhas Laranjas</Styled.ProfileOption>
+                  <Styled.ProfileOption value="regiao_alola">Região de Alola</Styled.ProfileOption>
+                  <Styled.ProfileOption value="regiao_galar">Região de Galar</Styled.ProfileOption>
+              </Styled.ProfileSelect>
               {ValidationOriginError}
             </Form.Group>
           </Col>
@@ -183,8 +190,6 @@ function CreateUser() {
         </ProfileButtonAlt>
       </Form> 
     </Styled.Container>
-    </Styled.PageContainer>
-    </>    
   );
 }
 

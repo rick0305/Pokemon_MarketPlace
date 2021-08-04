@@ -15,15 +15,15 @@ function Footer () {
       <Container>
         <Row>
           <Column>
-            <FooterLink href="#">Sobre nós</FooterLink>
+            <FooterLink href="/whoweare">Sobre nós</FooterLink>
             
           </Column>
           <Column>
-            <FooterLink href="#">Equipe</FooterLink>
+            <FooterLink href="/team">Equipe</FooterLink>
             
           </Column>
           <Column>
-            <FooterLink href="#">Contatos</FooterLink>
+            <FooterLink href="/contact">Contatos</FooterLink>
             
           </Column>
         </Row>

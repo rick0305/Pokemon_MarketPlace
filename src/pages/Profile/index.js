@@ -3,17 +3,17 @@ import { useFormik } from 'formik';
 import { Form, Col, Row} from 'react-bootstrap';
 import { useHistory, useLocation, useParams } from 'react-router-dom';
 import { Styled, ProfileButton, ProfileButtonAlt  } from './styles';
-import { useRegister } from '../../hooks/context/RegisterProvider';
+import { useUser } from '../../hooks/context/UserProvider';
 import { validationSchema } from './validation';
 
 function EditUser() {
   const history = useHistory();
   const { id } = useParams()
   const { state } = useLocation()
-  const { error, putUser } = useRegister();
+  const { error, putUser } = useUser();
 
   const handleCancel = async () => {
-    await 
+    await
     history.push("/");
   };
 
@@ -130,8 +130,8 @@ function EditUser() {
                 value={formik.values.gender}  
                 >
                   <option>Selecione seu gênero</option>
-                  <option value="male">Masculino</option>
                   <option value="female">Feminino</option>
+                  <option value="male">Masculino</option>
                   <option value="others">Prefiro não responder</option>
               </Styled.ProfileSelect>
               {ValidationGenderError}
@@ -142,16 +142,24 @@ function EditUser() {
           <Col>
             <Form.Group className="mb-3">
               <Styled.ProfileLabel>Origem</Styled.ProfileLabel>
-              <Styled.ProfileInput
+              <Styled.ProfileSelect
                 id="origin"
                 name="origin"
-                type="text"
-                placeholder="Insira sua origem"
-                onChange={formik.handleChange}
+                onChange={formik.handleChange}            
                 isValid={formik.touched.origin && !formik.errors.origin}
-                isInvalid={formik.errors.origin}    
-                value={formik.values.origin}      
-              />
+                isInvalid={formik.errors.origin}>
+                  <option>Selecione sua origem</option>
+                  <option value="kanto">Kanto</option>
+                  <option value="johto">Johto</option>
+                  <option value="hoenn">Hoenn</option>
+                  <option value="sinnoh">Sinnoh</option>
+                  <option value="unova">Unova</option>
+                  <option value="kalos">Kalos</option>
+                  <option value="sevil_islands">Sevil Islands</option>
+                  <option value="ilhas_laranjas">Ilhas Laranjas</option>
+                  <option value="regiao_alola">Região de Alola</option>
+                  <option value="regiao_galar">Região de Galar</option>
+              </Styled.ProfileSelect>
               {ValidationOriginError}
             </Form.Group>
           </Col>

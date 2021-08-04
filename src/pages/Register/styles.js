@@ -1,8 +1,9 @@
-// estilização da página CreatProduct
+// estilização da página CreatUser
 
 import styled from "styled-components";
 import { FormControl, FormSelect, Button, FormLabel } from 'react-bootstrap';
 import { mixins } from "../../styles/mixins";
+
 
 export const Styled = {
 
@@ -30,7 +31,13 @@ export const Styled = {
     padding: 1rem 3rem;
     box-shadow: ${mixins.styles.shadowBox};
 
-    
+    @media (max-width: 1000px) {
+      background: ${mixins.colors.secondary};
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      padding: 1rem 4.5rem;
+    }
   `,
   Title: styled.h1`
 		height: 100px;
@@ -41,7 +48,14 @@ export const Styled = {
 		color: ${mixins.colors.secondary};
 		font-family: ${mixins.fonts.bold};
 		font-size: ${mixins.typograph.titleLogin};
+
+    @media (max-width: 1000px) {
+      color: ${mixins.colors.foreground};
+      font-size: 70px;
+      margin: 80px 0;
+    }
 	`,
+
   Error: styled.p`
     margin-top: 4px;
     align-self: center;
@@ -49,7 +63,12 @@ export const Styled = {
     color: ${mixins.colors.red};
     font-family: ${mixins.fonts.semi_bold};
     font-size: ${mixins.typograph.paragraph};
+
+    @media (max-width: 1000px) {
+      font-size: 28px;
+    }
   `,
+  
   ProfileInput: styled(FormControl) `
     background-color: #eee;
     border: none;
@@ -60,6 +79,14 @@ export const Styled = {
     &:focus {
       outline: none;
     }
+
+    @media (max-width: 1000px) {
+      width: 100%;
+      height: 100%;
+      font-size: 40px;
+      margin: 20px 0px;
+      padding: 10px;
+    }
   `,
   ProfileSelect: styled(FormSelect) `
     background-color: #eee;
@@ -67,12 +94,28 @@ export const Styled = {
     border-bottom: 1px solid ${mixins.colors.secondary};
     width: 100%;  
     height: 35px;   
-    color: rgba(0,0,0,0.5);  
+    color: rgba(0,0,0,0.5); 
+    
+    @media (max-width: 1000px) {
+      width: 100%;
+      height: 100%;
+      font-size: 40px;
+      margin: 20px 0px;
+    }
   `,
   ProfileLabel: styled(FormLabel) `
     color: ${mixins.colors.dark};
     font-size: ${mixins.typograph.paragraph};
     font-family: ${mixins.fonts.bold};
+    @media (max-width: 1000px) {
+      width: 100%;
+      font-size: 30px;
+    }
+  `, 
+  ProfileOption: styled.option `
+    @media (max-width: 1000px) {
+      font-size: ${mixins.typograph.paragraph};
+    }
   `
 }
 
@@ -85,10 +128,25 @@ export const ProfileButton = styled(Button)  `
   color: ${mixins.colors.dark};
   font-family: ${mixins.fonts.bold};
   box-shadow: ${mixins.styles.shadowButton}
-
+  @media (max-width: 1000px) {
+    width: 100%;
+    background-color: ${mixins.colors.foreground};
+    color: ${mixins.colors.dark};
+    font-size: 36px;
+    display: flex;        
+		flex-direction: row;
+    margin: 45px 0;
+  }
 `;
 
 export const ProfileButtonAlt = styled(ProfileButton) ` 
   background-color: ${mixins.colors.dark};
   color: ${mixins.colors.secondary};
+
+  @media (max-width: 1000px) {
+    color: ${mixins.colors.foreground};
+    font-size: 36px;
+    display: flex;        
+		flex-direction: row;
+  }
 `
