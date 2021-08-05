@@ -6,6 +6,8 @@ import { useAuth } from '../../hooks/context/AuthProvider';
 import { useHistory } from 'react-router-dom';
 import {useCart} from "../../hooks/context/CartProvider"
 import TypeMenu from '../TypeMenu';
+import { useDispatch, useSelector } from 'react-redux';
+import {setPokemon} from "../../redux/pokemonSearch"
 
 
 import { Styled } from './styles';
@@ -23,11 +25,23 @@ function NavBar() {
   const { auth, SignOut } = useAuth();
   const history = useHistory();
 
- 
+  const [searchName, setSearchName] = useState("")
+
+  const dispatch = useDispatch();
+
+  const handleChange = (e) => {
+    e.preventDefault()
+    setSearchName(e.target.value)
+  }
 
   const handleClick = async () => {            
     await
     history.push("/login")  
+  }
+
+  const handleSearch = async () => {            
+    dispatch(setPokemon(searchName))
+    history.push("/search")  
   }
 
   return (        
@@ -48,10 +62,12 @@ function NavBar() {
               <Styled.NavSearch type="search"
                 placeholder="Search"
                 className="mr-2"
-                aria-label="Search">
-                  
+                aria-label="Search"
+                value={searchName}
+                onChange={handleChange}
+                >
                 </Styled.NavSearch>
-                <Styled.NavItemButton><FiSearch /></Styled.NavItemButton>
+                <Styled.NavItemButton onClick={handleSearch}><FiSearch /></Styled.NavItemButton>
             </Styled.NavForm>
     </Styled.Nav>
   );

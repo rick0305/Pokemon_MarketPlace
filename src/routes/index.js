@@ -13,6 +13,7 @@ import Team from '../pages/Team';
 import Contact from '../pages/Contact';
 import NotFound from '../pages/NotFound';
 import Type from '../pages/PokemonType';
+import Search from "../pages/Search"
 
 // import { Container } from './styles';
 
@@ -29,6 +30,7 @@ function Routes() {
             <NavBar />
               <Route path="/" exact component={Home} />
               <Route path="/cart" component={Cart} />
+              <Route path="/search" component={Search} />
               <Route path="/profile" component={Profile} />
               {auth && <Route path="/whoweare" component={WhoWeAre} />}
               {auth && <Route path="/types" component={Type} />}

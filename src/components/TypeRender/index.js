@@ -11,6 +11,8 @@ function TypeRender() {
     const { value } = useSelector((state) => state.counter)
     const dispatch = useDispatch();
 
+    const { pokemonName } = useSelector((state) => state.search)
+
     const [pokemonData, setPokemonData] = useState([]);
     const [loading, setLoading] = useState(true);
     // const initialURL = `https://pokeapi.co/api/v2/type/${value}`;
@@ -95,6 +97,7 @@ function TypeRender() {
           </div>
         </div>
       )}
+      <h1>Nome {pokemonName}</h1>
     <Footer />
     <ToastContainer toastStyle={{color: "black"}} />
     </div>
