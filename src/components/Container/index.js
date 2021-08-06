@@ -24,6 +24,13 @@ function Container({children, title, size}) {
             {children}
         </Styled.ContainerSM>
       );
+    case "cart":
+      return (
+        <Styled.ContainerCart>
+          <Styled.Title>{title}</Styled.Title>
+            {children}
+        </Styled.ContainerCart>
+      );
     case "pages":
       return (
         <Styled.ContainerPages>

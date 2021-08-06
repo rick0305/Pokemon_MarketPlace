@@ -1,4 +1,5 @@
 import { createContext, useState, useContext, useEffect } from "react";
+import {useHistory} from "react-router-dom"
 
 export const CartContext = createContext()
 
@@ -44,6 +45,11 @@ export const CartProvider = ({children}) => {
         })
     }
 
+    const removeAllItems = () => {
+        // window.localStorage.setItem('cart', JSON.stringify({}))
+        window.localStorage.removeItem('cart')
+    }
+
     const changeQuantity = (productId, newQuantity) => {
         setCart(old => {
             const newCart = {}
@@ -60,7 +66,7 @@ export const CartProvider = ({children}) => {
     }
 
     return (
-        <CartContext.Provider value={{cart, addToCart, removeFromCart, changeQuantity}}>
+        <CartContext.Provider value={{cart, addToCart, removeFromCart, changeQuantity, removeAllItems}}>
             {children}
         </CartContext.Provider>
     )

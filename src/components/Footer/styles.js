@@ -19,6 +19,7 @@ export const Container = styled.div`
 	justify-content: center;
 	max-width: 700px;
 	margin: 0 auto;
+	margin-top: 20px;
 `
 
 export const Column = styled.div`

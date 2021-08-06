@@ -22,13 +22,15 @@ img {
 }
 
 .Card {
-    background: rgb(236, 236, 236);
+    background: rgb(255, 255, 255);
     border-radius: 10px;
     transition: 0.1s;
 }
 .Card:hover {
-    background: rgb(185, 185, 185);
+    background: rgb(223, 223, 223);
     transition: 0.1s;
+    border: 10px;
+    border-color: red;
 }
 
 .Card__img {

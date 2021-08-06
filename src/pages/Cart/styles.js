@@ -14,6 +14,10 @@ export const Styled = {
         margin-bottom: 5px;
         align-self: center;
         border-radius:10px;
+
+        @media (max-width: 600px) {
+            width: 100%;
+        }
     `,
 
     ListGroup: styled(ListGroup)`
@@ -23,16 +27,26 @@ export const Styled = {
         vertical-align: center;
     `,
 
-    ListGroupItem: styled(ListGroup.Item) `
-        background-color:transparent;
+    ListGroupItem: styled(ListGroup.Item)`
+        color: black;
+        background-color: ${props => props.inputColor || "white"};  
         display: flex;
-        /* width: 150px; */
-        /* height: 50px; */
+        justify-content: center;
+        align-items: center;
+        font-weight: 700;
+        width: ${props => props.width};
+        /* height: 100px; */
         border: none;
         justify-content:center; 
         align-self: center;
         vertical-align: center;
-        font-size: 20px;
+        font-size: ${props => props.fontSize || "20px"};
         padding:1rem 2rem;
-    `
+    `,
+
+    ListInput: styled.input`
+        border-color: "red";
+        text-align: center;
+        font-size: 20px;
+    `,
 }

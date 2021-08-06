@@ -97,7 +97,6 @@ function TypeRender() {
           </div>
         </div>
       )}
-      <h1>Nome {pokemonName}</h1>
     <Footer />
     <ToastContainer toastStyle={{color: "black"}} />
     </div>
