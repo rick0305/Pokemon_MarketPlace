@@ -34,7 +34,7 @@ function Routes() {
               <Route path="/" exact component={Home} />
               <Route path="/home" component={Home} />
               <Route path="/cart" component={Cart} />
-              <Route path="/profile" component={Profile} />
+              <Route path="/profile/:id" component={Profile} />
               <Route path="/whoweare" component={WhoWeAre} />
               <Route path="/types" component={Type} />
               <Route path="/team" component={Team} />

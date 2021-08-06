@@ -14,14 +14,14 @@ const ContainerSM = styled.div`
 
 export const Styled = {
     ContainerSM,
-    ContainerLG: styled(ContainerSM)`       
-		margin: 5% 0;
-		width: 90%;       
-		align-items: center;
-		border-radius: 25px;
+    ContainerLG: styled.div`       
+		margin-top: 5%;
+		width: 100%;       
+		height: 110%; 
 		flex-direction: column;
-		justify-content: center;
-		padding: none;
+		padding: 5%;
+		display: flex;
+		background: ${mixins.styles.gradienteAlt};
 	`,
 	ContainerMD: styled.div`
 		margin: 5% 0;
@@ -40,7 +40,7 @@ export const Styled = {
 		height: 100px;
 		display: flex;        
 		flex-direction: row;
-		color: ${mixins.colors.primary};
+		color: ${mixins.colors.foreground};
 		font-family: ${mixins.fonts.bold};
 		font-size: ${mixins.typograph.titleLogin};		
 	`,
