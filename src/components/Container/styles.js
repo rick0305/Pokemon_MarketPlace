@@ -36,6 +36,19 @@ export const Styled = {
 		/* justify-content: center; */
 		padding: none;
 	`,
+	ContainerCart: styled.div`
+		margin: 5% 0;
+		width: 100%;
+		height: 100%;
+		background-color: ${mixins.colors.foreground};
+		display: flex;
+		flex-direction: column;
+		align-self: center;
+		border-radius: 10px;
+		align-items: top;
+		/* justify-content: center; */
+		padding: none;
+	`,
 	Title: styled.h1`
 		height: 100px;
 		display: flex;        
