@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { Form, Col, Row } from 'react-bootstrap';
 import { useFormik } from 'formik';
 import { useHistory } from 'react-router-dom';
-import { Styled, ProfileButton, ProfileButtonAlt } from './styles';
+import { Styled, PageContainer, ProfileButton, ProfileButtonAlt } from './styles';
 import { validationSchema } from './validation';
 import { useUser } from '../../hooks/context/UserProvider/index'
 import { api } from '../../services/api'
@@ -79,10 +79,12 @@ function CreateUser() {
   );
 
   return (
+    <PageContainer>
     <Styled.Container>
       <Styled.Title>Inicie sua jornada</Styled.Title>
-      <Form onSubmit={formik.handleSubmit}>
-        <Form.Group className="mb-3">
+      <Form onSubmit={formik.handleSubmit} style={{overflow: "visible"}}>
+        <Col xs="auto">
+        <Form.Group className="mb-2">
           <Styled.ProfileLabel>Login</Styled.ProfileLabel>
           <Styled.ProfileInput
             id="login"
@@ -95,7 +97,7 @@ function CreateUser() {
           {ValidationLoginError}
         </Form.Group>
 
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-2">
           <Styled.ProfileLabel>Senha</Styled.ProfileLabel>
           <Styled.ProfileInput
             id="password"
@@ -108,9 +110,10 @@ function CreateUser() {
           />
           {ValidationPasswordError}
         </Form.Group>
-        <Row>
-          <Col xs={7}>
-            <Form.Group className="mb-3">
+        </Col>
+        {/* <Row> */}
+        <Col xs="auto">
+            <Form.Group className="mb-2">
               <Styled.ProfileLabel>Nome Completo</Styled.ProfileLabel>
               <Styled.ProfileInput
                 id="name"
@@ -123,8 +126,9 @@ function CreateUser() {
               {ValidationNameError}
             </Form.Group>
           </Col>
-          <Col>
-            <Form.Group className="mb-3">
+          <Row className="align-items-center">
+          <Col xs="auto">
+            <Form.Group className="mb-2">
               <Styled.ProfileLabel>Sexo</Styled.ProfileLabel>
               <Styled.ProfileSelect
                 id="gender"
@@ -139,11 +143,9 @@ function CreateUser() {
               </Styled.ProfileSelect>
               {ValidationGenderError}
             </Form.Group>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Form.Group className="mb-3">
+            </Col>
+          <Col xs="auto">
+            <Form.Group className="mb-2">
               <Styled.ProfileLabel>Origem</Styled.ProfileLabel>
               <Styled.ProfileSelect
                 id="origin"
@@ -166,8 +168,9 @@ function CreateUser() {
               {ValidationOriginError}
             </Form.Group>
           </Col>
-          <Col>
-            <Form.Group className="mb-3">
+          </Row>
+          <Col xs="auto">
+            <Form.Group className="mb-2">
               <Styled.ProfileLabel>Função</Styled.ProfileLabel>
               <Styled.ProfileInput
                 id="work"
@@ -179,8 +182,7 @@ function CreateUser() {
               />
               {ValidationWorkError}
             </Form.Group>
-          </Col>
-        </Row>     
+          </Col> 
         {AppError}
         <ProfileButton type="submit">
           Salvar
@@ -190,6 +192,7 @@ function CreateUser() {
         </ProfileButtonAlt>
       </Form> 
     </Styled.Container>
+    </PageContainer>
   );
 }
 

@@ -33,7 +33,7 @@ function TypeMenu() {
   return (
     <div>
       <>
-        <Nav className="justify-content-center" activeKey="/home">
+        <Nav className="justify-content-center" activeKey="/home" style={{ backgroundColor: "#fff" }}>
           <Nav.Item>
             <Nav.Link
               style={{ color: "red", fontSize: "16px", fontWeight: "700" }}

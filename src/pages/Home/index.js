@@ -64,6 +64,7 @@ function Home() {
           <div style={{marginTop: "70px", marginBottom: "30px"}}>
             <TypeMenu />
           </div>
+          
           <div className="grid-container">
             {pokemonData.map((pokemon, i) => {
               return <Card key={i} pokemon={pokemon} />;

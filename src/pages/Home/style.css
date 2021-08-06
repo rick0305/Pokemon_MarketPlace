@@ -22,9 +22,10 @@ img {
 }
 
 .Card {
-    background: rgb(236, 236, 236);
+    background: #fff;
     border-radius: 10px;
     transition: 0.5s;
+    
 }
 .Card:hover {
     background: rgb(255, 234, 234);

@@ -22,7 +22,7 @@ img {
 }
 
 .Card {
-    background: rgb(236, 236, 236);
+    background:#fff;
     border-radius: 10px;
     transition: 0.1s;
 }

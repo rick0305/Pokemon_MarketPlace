@@ -9,6 +9,8 @@
     margin: 0 auto;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 25px;
+
+    
 }
 
 .btn {
@@ -26,4 +28,13 @@
     background: #30a7d7;
     color: #fff;
     font-size: 1em;
+}
+
+@media (max-width: 768px) {
+
+    .grid-container {
+        width: 90%;
+    }
+
+
 }

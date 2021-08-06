@@ -50,10 +50,11 @@ export default createGlobalStyle`
         border-radius: 10px;
         background: ${mixins.colors.primary};
         border:4px solid #fff;
-    }
+
+      }
   }
   body {
-    background: #fff;
+    background: #e2e2e2;
     --webkit-font-smoothing: antialiased;
   }
   #root, body, html {

@@ -1,11 +1,11 @@
-import React, { useMemo } from 'react';
-import { Form } from 'react-bootstrap';
-import { useFormik } from 'formik';
-import { useAuth } from '../../hooks/context/AuthProvider';
-import { useHistory, Link } from 'react-router-dom';
-import { Styled, LoginButton, LoginBox, LoginInput, LoginForm, LgTitle, LgText, CancelButton} from './styles';
-import { validationSchema } from './validation';
-
+import React, { useMemo } from "react";
+import { Form } from "react-bootstrap";
+import { useFormik } from "formik";
+import { useAuth } from "../../hooks/context/AuthProvider";
+import { useHistory, Link } from "react-router-dom";
+import { Styled } from "./styles";
+import { validationSchema } from "./validation";
+import { YellowButton, CancelButton } from '../../components/Button';
 
 function Login() {
   const { SignIn, error } = useAuth();
@@ -17,37 +17,35 @@ function Login() {
       password: "",
     },
     validationSchema,
-    onSubmit: async values => {
+    onSubmit: async (values) => {
       await SignIn(values);
       history.push("/home");
-    }
+    },
   });
 
   const handleCancel = async () => {
-    await 
-    history.push("/");
+    await history.push("/home");
   };
 
-  const AppError = useMemo(
-    () => <Styled.Error>{error}</Styled.Error>, [error]
-  );
+  const AppError = useMemo(() => <Styled.Error>{error}</Styled.Error>, [error]);
 
   const ValidationLoginError = useMemo(
-    () => <Styled.Error>{formik.errors.login}</Styled.Error>, [formik.errors.login]
+    () => <Styled.Error>{formik.errors.login}</Styled.Error>,
+    [formik.errors.login]
   );
   const ValidationPasswordError = useMemo(
-    () => <Styled.Error>{formik.errors.password}</Styled.Error>, [formik.errors.password]
+    () => <Styled.Error>{formik.errors.password}</Styled.Error>,
+    [formik.errors.password]
   );
 
   return (
     <Styled.Container>
-      <LoginBox
-      >
-        <LoginForm onSubmit={formik.handleSubmit}>
-          <LgTitle>Login</LgTitle>
-          <Form.Group >
+      <Styled.LoginBox>
+        <Styled.LoginForm onSubmit={formik.handleSubmit}>
+          <Styled.LgTitle>Login</Styled.LgTitle>
+          <Form.Group>
             <Form.Label></Form.Label>
-            <LoginInput
+            <Styled.LoginInput
               id="login"
               name="login"
               placeholder="Digite seu e-mail"
@@ -59,7 +57,7 @@ function Login() {
           </Form.Group>
           <Form.Group>
             <Form.Label></Form.Label>
-            <LoginInput
+            <Styled.LoginInput
               id="password"
               name="password"
               type="password"
@@ -69,17 +67,21 @@ function Login() {
               isInvalid={formik.errors.password}
             />
             {ValidationPasswordError}
-          </Form.Group> 
+          </Form.Group>
           {AppError}
-          
-          <LoginButton type="submit">Go!</LoginButton>
-          <CancelButton onClick={handleCancel}>Cancelar</CancelButton>
-        </LoginForm>
-        <LgText>Ainda não é um treinador Pokémon?</LgText>
-        <LgText> <Link to="/register">Clique aqui</Link> 
-        &nbsp;para iniciar sua jornada!
-        </LgText>
-      </LoginBox>
+
+          <YellowButton type="submit">Go!</YellowButton>
+          <CancelButton onClick={handleCancel}>
+            Cancelar
+          </CancelButton>
+        </Styled.LoginForm>
+        <Styled.LgText>Ainda não é um treinador Pokémon?</Styled.LgText>
+        <Styled.LgText>
+          {" "}
+          <Link to="/register">Clique aqui</Link>
+          &nbsp;para iniciar sua jornada!
+        </Styled.LgText>
+      </Styled.LoginBox>
     </Styled.Container>
   );
 }

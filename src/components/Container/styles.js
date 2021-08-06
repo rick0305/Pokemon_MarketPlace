@@ -5,7 +5,7 @@ const ContainerSM = styled.div`
 	margin:180px 0;
     width:355px;
     height: 479px;
-	background-color: ${mixins.colors.primary};
+	/* background-color: ${mixins.colors.primary}; */
 	align-self: flex-end;
 	margin-right: 200px;
 	padding: 50px;
@@ -40,7 +40,7 @@ export const Styled = {
 		height: 100px;
 		display: flex;        
 		flex-direction: row;
-		color: ${mixins.colors.foreground};
+		color: ${mixins.colors.primary};
 		font-family: ${mixins.fonts.bold};
 		font-size: ${mixins.typograph.titleLogin};		
 	`,

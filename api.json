@@ -18,6 +18,16 @@
       "origin": "sinnoh",
       "work": "Mestre",
       "id": 2
+    },
+    {
+      "login": "keila",
+      "password": "keila123",
+      "name": "keila beatriz",
+      "gender": "male",
+      "origin": "kalos",
+      "work": "nenhuma",
+      "id": 3,
+      "access_token": "liberado"
     }
   ],
   "products": []
