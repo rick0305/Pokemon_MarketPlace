@@ -33,7 +33,7 @@ function Routes() {
               <Route path="/search" component={Search} />
               <Route path="/profile" component={Profile} />
               {auth && <Route path="/whoweare" component={WhoWeAre} />}
-              {auth && <Route path="/types" component={Type} />}
+              <Route path="/types" component={Type} />
               {auth && <Route path="/team" component={Team} />}
               {auth && <Route path="/contact" component={Contact} />}
               {/* Aqui eu especifico para minha aplicação que qualquer parâmetro 
