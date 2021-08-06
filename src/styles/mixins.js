@@ -35,6 +35,7 @@ export const mixins = {
 	styles:{
 		// background: rgb(240,36,45);
         gradiente: "linear-gradient(340deg, rgba(240,36,45,1) 0%, rgba(246,160,32,1) 64%)",
+        gradienteAlt: "linear-gradient(250deg, rgba(240,36,45,1) 0%, rgba(246,160,32,1) 64%)",
 		shadowBox: "0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)",
 		shadowButton: "0 5px 5px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22)",
 	},

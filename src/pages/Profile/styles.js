@@ -3,12 +3,20 @@
 import styled from "styled-components";
 import { mixins } from "../../styles/mixins";
 import { FormControl, FormSelect, Button, FormLabel } from 'react-bootstrap';
+import { device } from "../../styles/device";
 
 export const Styled = {
   Container: styled.div`
-    margin: 6rem auto;
+    margin-top: 120px;
+    overflow: scroll; 
+    padding: 1rem 1rem 0 2rem;
+    height: 100%;
+    width: 100% ;
+    background: ${mixins.colors.foreground};
+
+  @media ${device.tablet} {
+    margin: 5rem 6rem auto;
     width: 650px;
-    height: 80%;
     background: ${mixins.colors.foreground};
     border-radius:10px;
     display: flex;
@@ -16,9 +24,13 @@ export const Styled = {
     align-self: center;
     align-items: center;
     justify-content: center;
-    padding: 1rem 3rem;
+    height: 80%;
+    padding-right: 2rem;
+    /* padding: 1rem 3rem; */
 
     box-shadow: ${mixins.styles.shadowBox};
+
+  }
       
   `,
   Title: styled.h1`
@@ -32,13 +44,14 @@ export const Styled = {
 		font-size: ${mixins.typograph.titleLogin};
 	`,
 
-  Error: styled.p`
+  Error: styled.span`
     margin-top: 4px;
     align-self: center;
     justify-self: center;
     color: ${mixins.colors.red};
     font-family: ${mixins.fonts.semi_bold};
     font-size: ${mixins.typograph.paragraph};
+    padding: 10px
   `,
 
   ProfileInput: styled(FormControl) `

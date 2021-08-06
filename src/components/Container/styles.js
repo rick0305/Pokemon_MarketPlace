@@ -5,7 +5,7 @@ const ContainerSM = styled.div`
 	margin:180px 0;
     width:355px;
     height: 479px;
-	background-color: ${mixins.colors.primary};
+	/* background-color: ${mixins.colors.primary}; */
 	align-self: flex-end;
 	margin-right: 200px;
 	padding: 50px;
@@ -14,14 +14,14 @@ const ContainerSM = styled.div`
 
 export const Styled = {
     ContainerSM,
-    ContainerLG: styled(ContainerSM)`       
-		margin: 5% 0;
-		width: 90%;       
-		align-items: center;
-		border-radius: 25px;
+    ContainerLG: styled.div`       
+		margin-top: 5%;
+		width: 100%;       
+		height: 110%; 
 		flex-direction: column;
-		justify-content: center;
-		padding: none;
+		padding: 5%;
+		display: flex;
+		background: ${mixins.styles.gradienteAlt};
 	`,
 	ContainerMD: styled.div`
 		margin: 5% 0;

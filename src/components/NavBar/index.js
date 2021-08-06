@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiUser, FiLogIn, FiLogOut, FiShoppingCart, FiSearch } from 'react-icons/fi'
 import Logo from '../../assets/logov1.png'
@@ -8,6 +8,7 @@ import {useCart} from "../../hooks/context/CartProvider"
 import TypeMenu from '../TypeMenu';
 import { useDispatch, useSelector } from 'react-redux';
 import {setPokemon} from "../../redux/pokemonSearch"
+
 
 
 import { Styled } from './styles';
@@ -24,6 +25,14 @@ function NavBar() {
   //login
   const { auth, SignOut } = useAuth();
   const history = useHistory();
+  
+  //se estiver nao logado vai para pagina login se sim para o pagina perfil
+  const isLogged = () => {
+    if(!auth){
+      return "/login"
+    }
+    return "/profile"
+  }
 
   const [searchName, setSearchName] = useState("")
 
@@ -35,6 +44,9 @@ function NavBar() {
   }
 
   const handleClick = async () => {            
+
+  //usuario vai para a pagina de login
+  const handleSignIn = async () => {            
     await
     history.push("/login")  
   }
@@ -42,36 +54,37 @@ function NavBar() {
   const handleSearch = async () => {            
     dispatch(setPokemon(searchName))
     history.push("/search")  
+
+  //signout e volta pra pagina home
+  const handleSignOut = async () => {            
+    await SignOut()
+    history.push("/home")  
+
   }
 
   return (        
     <Styled.Nav>
       <Styled.NavArea>        
-          <Link to="/"><Styled.NavBrand src={Logo}></Styled.NavBrand></Link>
+          <Link to="/home"><Styled.NavBrand src={Logo}></Styled.NavBrand></Link>
           <Styled.NavItems>
               {itemsCount > 0 &&
                 <Styled.Text>{itemsCount}</Styled.Text>
               }
               <Styled.NavItem to="/cart"><FiShoppingCart/></Styled.NavItem>
-              {auth ? <Styled.NavItem to="/profile"><FiUser /></Styled.NavItem> : 
-                <Styled.NavItem to="/login"><FiUser /></Styled.NavItem>}
-              <Styled.NavItem> {auth ? <FiLogOut onClick={SignOut}/> : <FiLogIn onClick={handleClick} /> }</Styled.NavItem>
+              <Styled.NavItem to={isLogged}><FiUser /></Styled.NavItem>
+              <Styled.NavItem> {auth ? <FiLogOut onClick={handleSignOut}/> : <FiLogIn onClick={handleSignIn} /> }</Styled.NavItem>
           </Styled.NavItems>
           </Styled.NavArea>
             <Styled.NavForm className="d-flex">
               <Styled.NavSearch type="search"
                 placeholder="Search"
                 className="mr-2"
-                aria-label="Search"
-                value={searchName}
-                onChange={handleChange}
-                >
-                </Styled.NavSearch>
-                <Styled.NavItemButton onClick={handleSearch}><FiSearch /></Styled.NavItemButton>
+                aria-label="Search">                  
+              </Styled.NavSearch>
+              <Styled.NavItemButton><FiSearch /></Styled.NavItemButton>
             </Styled.NavForm>
     </Styled.Nav>
   );
 }
-
-
+  
 export default NavBar;

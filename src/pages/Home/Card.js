@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./style.css";
 import typeColors from "./typeColors";
-import { Button, Modal, ModalBody, Toast } from "react-bootstrap";
+import { Modal, ModalBody } from "react-bootstrap";
 import { useCart } from "../../hooks/context/CartProvider";
 
+import { MainButton } from '../../components/Button';
+import { Styled } from '../Login/styles'
 import { toast } from 'react-toastify';
 
 function Card({ pokemon, toggleProduct, key }) {
@@ -50,7 +52,7 @@ function Card({ pokemon, toggleProduct, key }) {
   }
 
   return (
-    <div key={pokemon.id}>
+    <div key={pokemon.id} >
     <div className="Card">
       <div className="Card__img" onClick={handleShow}>
         <img src={pokemon.sprites.front_default} alt={pokemon.name} />
@@ -119,24 +121,24 @@ function Card({ pokemon, toggleProduct, key }) {
               <p>{returnMoneyValue(pokemon.height, pokemon.weight)}</p>
             </Modal.Body>
             <Modal.Footer>
-              <Button
+              <Styled.CancelButton
                 variant="secondary"
                 onClick={handleClose}
-                style={{ marginLeft: "2px" }}
+                style={{ marginLeft: "2px"}}
+                width="100px"
+                fontSize="14px"
               >
                 Fechar
-              </Button>
-              <Button
+              </Styled.CancelButton>
+              <MainButton
                 variant="primary"
                 onClick={add(pokemon)}
                 style={{
                   marginLeft: "2px",
-                  backgroundColor: "#EF4036",
-                  borderColor: "#EF4036",
                 }}
               >
                 Adicionar ao Carrinho
-              </Button>
+              </MainButton>
             </Modal.Footer>
           </Modal>
         </div>
@@ -147,7 +149,7 @@ function Card({ pokemon, toggleProduct, key }) {
           </p>
         </div>
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <Button variant="danger" onClick={add(pokemon)}>Adicionar ao Carrinho</Button> 
+          <MainButton onClick={add(pokemon)}>Adicionar ao Carrinho</MainButton> 
         </div>
       </div>
     </div>
