@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Container from '../../components/Container';
 import {useCart} from "../../hooks/context/CartProvider"
-import {ListGroup, Button} from "react-bootstrap"
+import {ListGroup, Button, Modal} from "react-bootstrap"
 import { FiTrash2 } from 'react-icons/fi'
 import {Styled} from "./styles"
 import {useHistory} from "react-router-dom"
+import swal from 'sweetalert'
 
 import {mixins} from "../../styles/mixins"
 
@@ -23,12 +24,20 @@ function Cart() {
     return `R$ ${teste},00`;
   }
 
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const [confirm, setConfirm] = useState(false);
+  const handleCloseConfirm = () => setConfirm(false);
+  const handleShowConfirm = () => setConfirm(true);
+
   const history = useHistory()
 
   const cart = useCart()
 
   const remove = id => () => {
     cart.removeFromCart(id)
+    handleCloseConfirm()
   }
 
   const changeQuantity = (id) => (evt) => {
@@ -36,7 +45,8 @@ function Cart() {
   }
 
   const handlePurchase = () => {
-    alert("Compra finalizada com sucesso")
+
+    // alert("Compra finalizada com sucesso")
     cart.removeAllItems()
     history.go("/")
   }
@@ -92,7 +102,22 @@ function Cart() {
             <Styled.ListGroupItem width="300px">{returnMoneyValue(height, weight)}</Styled.ListGroupItem>
             <Styled.ListGroupItem width="300px">{returnTotalValue(height, weight, product.quantity)}</Styled.ListGroupItem>
             {/* <Styled.ListGroupItem width="80px"><FiTrash2 onClick={remove(key)} /></Styled.ListGroupItem> */}
-            <ListGroup.Item style={{width: "80px", height: "100px", display: "flex", border: "none", justifyContent: "center", alignItems: "center", fontSize: "24px"}}><FiTrash2 onClick={remove(key)} /></ListGroup.Item>
+            <ListGroup.Item style={{width: "80px", height: "100px", display: "flex", border: "none", justifyContent: "center", alignItems: "center", fontSize: "24px"}}><FiTrash2 onClick={handleShowConfirm} /></ListGroup.Item>
+
+            <Modal centered show={confirm} onHide={handleCloseConfirm}>
+              <Modal.Header closeButton>
+                <Modal.Title>Deseja excluir o produto?</Modal.Title>
+              </Modal.Header>
+              <Modal.Footer>
+                <Button variant="warning" onClick={handleCloseConfirm}>
+                  Fechar
+                </Button>
+                <Button variant="danger" onClick={remove(key)}>
+                  Excluir Produto
+                </Button>
+              </Modal.Footer>
+            </Modal>
+          
           </ListGroup>
           </div>
         )
@@ -103,7 +128,18 @@ function Cart() {
         <ListGroup.Item style={{width: "350px", height: "100px", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "20px"}}>{returnAllValue((allItemsPrice()))}</ListGroup.Item>
       </ListGroup>
       </div>
-      <Button onClick={handlePurchase}>Finalizar Compra</Button>
+      <Button onClick={handleShow}>Finalizar Compra</Button>
+
+      <Modal centered show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Compra Efetuada com Sucesso!</Modal.Title>
+        </Modal.Header>
+        <Modal.Footer>
+          <Button variant="danger" onClick={handlePurchase}>
+            Continuar
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Container>
   )
 }
