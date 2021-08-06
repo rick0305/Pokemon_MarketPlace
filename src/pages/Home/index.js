@@ -56,7 +56,7 @@ function Home() {
   };
 
   return (
-    <div style={{overflowY: "scroll"}}>
+    <div style={{overflowY: "scroll", backgroundColor: "#efefef"}}>
       {loading ? (
         <h1 style={{ textAlign: "center" }}>Loading...</h1>
       ) : (

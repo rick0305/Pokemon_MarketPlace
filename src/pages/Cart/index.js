@@ -16,6 +16,11 @@ function Cart() {
     var teste = (number1 * number2 * number3).toLocaleString();
     return `R$ ${teste},00`;
   }
+  function returnAllValue(number1) {
+    var teste = (number1).toLocaleString();
+    return `R$ ${teste},00`;
+  }
+
 
   const cart = useCart()
 
@@ -25,6 +30,23 @@ function Cart() {
 
   const changeQuantity = (id) => (evt) => {
     cart.changeQuantity(id, Number(evt.target.value))
+  }
+
+  const handlePurchase = () => {
+    cart.removeAllItems()
+    alert("Compra finalizada com sucesso")
+  }
+
+  const allItemsPrice = () => {
+    let total = 0
+    Object.keys(cart.cart).map(key => {
+      const product = cart.cart[key]
+      const weight = product.product.pokemon.weight
+      const height = product.product.pokemon.height
+      const quantity = product.quantity
+      return (total += (weight * height * quantity))
+    })
+    return total
   }
 
   return (
@@ -40,6 +62,12 @@ function Cart() {
         <ListGroup.Item style={{width: "80px", height: "50px", backgroundColor:`${mixins.colors.primary}`, color: "white", fontWeight: "700", border: "none", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "24px"}}></ListGroup.Item>
       </ListGroup>
       </div>
+
+      {allItemsPrice() === 0 &&
+      <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+        <h2>Carrinho Vazio</h2>
+      </div>
+      }
 
       {Object.keys(cart.cart).map(key => {
         const product = cart.cart[key]
@@ -58,6 +86,13 @@ function Cart() {
           </div>
         )
       })}
+      <div style={{display: "flex", justifyContent: "center", alignItems: "center", marginBottom: "5px"}}>
+      <ListGroup horizontal >
+        <ListGroup.Item style={{width: "350px", height: "100px", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "20px"}}>Total</ListGroup.Item>
+        <ListGroup.Item style={{width: "350px", height: "100px", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "20px"}}>{returnAllValue((allItemsPrice()))}</ListGroup.Item>
+      </ListGroup>
+      </div>
+      <button onClick={handlePurchase}>Finalizar Compra</button>
     </Container>
   )
 }
