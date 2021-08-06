@@ -42,8 +42,8 @@ export const Styled = {
 
     @media (max-width: 1000px) {
       color: ${mixins.colors.foreground};
-      font-size: 70px;
-      margin: 80px 0;
+      font-size: 80px;
+      margin-bottom: 150px;
     }
 	`,
 
