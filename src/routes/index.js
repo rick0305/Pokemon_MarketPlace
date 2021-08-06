@@ -29,7 +29,7 @@ function Routes() {
           <Route path="/register" component={Register}></Route>
           <Route path="/team" component={Team} />
           <Route path="/contact" component={Contact} />
-          <Route path="/whoweare" component={WhoWeAre} />
+          <Route path="/history" component={WhoWeAre} />
           {auth && <Route path="/cart" component={Cart} />}
           {auth && <Route path="/profile" component={Profile} />}
           {auth && <Route path="/types" component={Type} />}
