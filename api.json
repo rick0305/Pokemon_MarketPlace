@@ -18,6 +18,15 @@
       "origin": "sinnoh",
       "work": "Mestre",
       "id": 2
+    },
+    {
+      "login": "user2",
+      "password": "user2",
+      "name": "Rebeca",
+      "gender": "male",
+      "origin": "sevil_islands",
+      "work": "teste",
+      "id": 3
     }
   ],
   "products": []
