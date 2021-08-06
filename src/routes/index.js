@@ -25,20 +25,22 @@ function Routes() {
       <Styled.PageLayout>
         <Switch>
           <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+          <>
             <NavBar />
-            <Route path="/register" component={Register} />
               <Route path="/" exact component={Home} />
               <Route path="/cart" component={Cart} />
               <Route path="/search" component={Search} />
               <Route path="/profile" component={Profile} />
-              <Route path="/history" component={WhoWeAre} />
+              {auth && <Route path="/whoweare" component={WhoWeAre} />}
               {auth && <Route path="/types" component={Type} />}
-              <Route path="/team" component={Team} />
-              <Route path="/contact" component={Contact} />
+              {auth && <Route path="/team" component={Team} />}
+              {auth && <Route path="/contact" component={Contact} />}
               {/* Aqui eu especifico para minha aplicação que qualquer parâmetro 
                   passado diferente especificados acima vá para pagina notfound e exibe uma
                   mensagem de pagina não encontrada*/}          
               <Redirect from="*" to={NotFound}></Redirect>
+          </>
         </Switch>
       </Styled.PageLayout>
       {/* {auth && <Footer />} */}

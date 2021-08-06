@@ -15,7 +15,7 @@ function Footer () {
       <Container>
         <Row>
           <Column>
-            <FooterLink href="/history">História</FooterLink>
+            <FooterLink href="/whoweare">Sobre nós</FooterLink>
             
           </Column>
           <Column>
