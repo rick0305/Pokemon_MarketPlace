@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Container from '../../components/Container';
 import {useCart} from "../../hooks/context/CartProvider"
 import {ListGroup, Button, Modal} from "react-bootstrap"
-import { FiTrash2 } from 'react-icons/fi'
+import { FiTrash2, FiMinusCircle, FiPlusCircle } from 'react-icons/fi'
 import {Styled} from "./styles"
 import {useHistory} from "react-router-dom"
 import swal from 'sweetalert'
@@ -128,7 +128,9 @@ function Cart() {
         <ListGroup.Item style={{width: "350px", height: "100px", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "20px"}}>{returnAllValue((allItemsPrice()))}</ListGroup.Item>
       </ListGroup>
       </div>
-      <Button onClick={handleShow}>Finalizar Compra</Button>
+      <div style={{width: "200px", margin: "auto", display: "flex", justifyContent: "center", alignItems: "center"}}>
+        <Button onClick={handleShow} variant="danger">Finalizar Compra</Button>
+      </div>
 
       <Modal centered show={show} onHide={handleClose}>
         <Modal.Header closeButton>
